@@ -1,545 +1,785 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wedding Invitation 1</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Sacramento&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- icon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- simply countdown -->
-    <link rel="stylesheet" href="countdown/circle.css" />
-    <script src="countdown/simplyCountdown.umd.js"></script>
-  </head>
-  <body>
-    <!-- bagian hero -->
-    <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
-      <main>
-        <h4>Kepada Yth.<span>Bapak/Ibu/Saudara/i, </span></h4>
-        <h1>Rama & Sinta</h1>
-        <p>Akan melangsungkan resepsi pernikan dalam:</p>
-        <!-- nanti ada countdown disini -->
-        <div id="countdown" class="countdown simply-countdown-circle mt-4 mb-4"></div>
-        <a href="#home" class="btn mt-4" btn-lg onClick="enableScroll()">Lihat Undangan</a>
-      </main>
-    </section>
-
-    <!-- bagian navbar -->
-    <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
-      <div class="container">
-        <a class="navbar-brand" href="#">Rama & Sinta</a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Rama & Sinta</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-              <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="#home">Home</a>
-                <a class="nav-link" href="#info">Info</a>
-                <a class="nav-link" href="#story">Story</a>
-                <a class="nav-link" href="#gallery">Gallery</a>
-                <a class="nav-link" href="#rsvp">RSVP</a>
-                <a class="nav-link" href="#gifts">Gifts</a>
-              </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- bagian home -->
-    <section id="home" class="home">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 text-center">
-            <h2>Acara Pernikahan</h2>
-            <h3>Diselenggarakan pada 22 Mei 2025 di Sidoarjo</h3>
-            <p>Oleh karena itu, dengan segala hormat, kami bermaksud untuk mengundang Bapak/Ibu/Saudara/i, untuk hadir pada acara pernikahan kami.</p>
-          </div>
-
-          <div class="row couple">
-            <!-- pengantin Pria -->
-            <div class="col-lg-6">
-              <div class="row">
-                <div class="col-8 text-end">
-                  <h3>Rama</h3>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis nulla aliquam, quod nihil quo enim.</p>
-                  <p>Putra dari Bpk. Lorem <br> dan <br> Ibu Ipsum</p>
-                </div>
-                <div class="col-4">
-                  <img src="img/pengantinPria.png" alt="pengantinPria" class="img-responsive rounded-circle">
-                </div>
-              </div>
-            </div>
-            <span class="heart"><i class="bi bi-heart-fill"></i></span>
-            <!-- pengantin Wanita -->
-            <div class="col-lg-6">
-              <div class="row">
-                <div class="col-4">
-                  <img src="img/pengantinWanita.png" alt="pengantinWanita" class="img-responsive rounded-circle">
-                </div>
-                <div class="col-8">
-                  <h3>Sinta</h3>
-                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis nulla aliquam, quod nihil quo enim.</p>
-                  <p>Putri dari Bpk. Ipsum <br> dan <br> Ibu Lorem</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- bagian info -->
-    <section id="info" class="info">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-10 text-center">
-            <h2>Informasi Acara</h2>
-            <p class="alamat">Alamat: <br>Hotel Luminor Sidoarjo <br>Jl. Pahlawan, Jetis, Lemahputro, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61213</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d63298.38279387083!2d112.66196664644774!3d-7.448770886511811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x2dd7e147d8609f2d%3A0xe5726fef581eeadd!2sJl.%20Pahlawan%2C%20Jetis%2C%20Lemahputro%2C%20Kec.%20Sidoarjo%2C%20Kabupaten%20Sidoarjo%2C%20Jawa%20Timur%2061213!3m2!1d-7.448857899999999!2d112.70316679999999!5e0!3m2!1sid!2sid!4v1745850010354!5m2!1sid!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <a href="https://maps.app.goo.gl/Tx99TrB7qfLSzjNB8" target="_blank" class="btn btn-light btn-sm my-4">Klik untuk membuka peta</a>
-            <p class="description">Diharapkan untuk tidak salah alamat dan tanggal. Manakala tiba di tujuan namun tidak ada tanda-tanda sedang dilangsungkan pernikahan, boleh jadi Anda salah jadwal, atau salah tempat.</p>
-          </div>
-        </div>
-        <div class="row justify-content-center mt-4">
-          <div class="col-md-5 col-10">
-            <div class="card text-center text-bg-light mb-5">
-              <div class="card-header">
-                Akad Nikah
-              </div>
-              <div class="card-body">
-                <div class="row justify-content-center">
-                  <div class="col-md-6">
-                    <i class="bi bi-clock d-block"></i>
-                    <span>08.00 - 10.00</span>
-                  </div>
-                  <div class="col-md-6">
-                    <i class="bi bi-calendar3 d-block"></i>
-                    <span>Minggu, 22 Mei 2025</span>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                Saat acara akad diharapkan kondusif untuk menjaga kekhidmatan dan kekhusyukan seluruh prosesi.
-              </div>
-            </div>
-          </div>
-          <div class="col-md-5 col-10">
-            <div class="card text-center text-bg-light">
-              <div class="card-header">
-                Resepsi
-              </div>
-              <div class="card-body">
-                <div class="row justify-content-center">
-                  <div class="col-md-6">
-                    <i class="bi bi-clock d-block"></i>
-                    <span>10.00 - Selesai</span>
-                  </div>
-                  <div class="col-md-6">
-                    <i class="bi bi-calendar3 d-block"></i>
-                    <span>Minggu, 22 Mei 2025</span>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                Merupakan kehormatan dan kebahagiaan bagi kami apabila Anda berkenan hadir dan memberikan doa restu.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- bagian story -->
-    <section id="story" class="story">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-10 text-center">
-            <span>Bagaimana Cinta Kami Bersemi</span>
-            <h2>Cerita Kami</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi officia deserunt nam, adipisci porro doloremque.</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <ul class="timeline">
-              <li>
-                <div class="timeline-image" style="background-image: url(img/prewed2.jpeg);"></div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h3>Pertama Bertemu</h3>
-                    <span>14 September 2020</span>
-                  </div>
-                  <div class="timeline-body">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellendus sint rerum adipisci, obcaecati aperiam!</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="timeline-inverted">
-                <div class="timeline-image" style="background-image: url(https://picsum.photos/id/1/300/300);"></div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h3>Mulai Serius</h3>
-                    <span>11 November 2020</span>
-                  </div>
-                  <div class="timeline-body">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellendus sint rerum adipisci, obcaecati aperiam!</p>
-                  </div>
-                </div>
-              </li>
-
-              <li>
-                <div class="timeline-image" style="background-image: url(https://picsum.photos/id/1/301/301);"></div>
-                <div class="timeline-panel">
-                  <div class="timeline-heading">
-                    <h3>Tunangan</h3>
-                    <span>22 Mei 2023</span>
-                  </div>
-                  <div class="timeline-body">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellendus sint rerum adipisci, obcaecati aperiam!</p>
-                  </div>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Микола & Анастасія — Запрошення на весілля</title>
     
-    <!-- bagian gallery -->
-     <section id="gallery" class="gallery">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-10 text-center">
-            <span>Memori Perjalanan Kami</span>
-            <h2>Galeri Foto</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, hic.</p>
-          </div>
-
-          <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 justify-content-center">
-            <div class="col mt-3">
-              <a href="img/gallery/galleryMain1.jpeg" data-toggle="lightbox" data-caption="Rama & Sinta 1" data-galery="mygallery">
-                <img src="https://picsum.photos/id/200/1200/768" alt="Rama & Sinta 1" class="img-fluid w-100 rounded">
-              </a>
-            </div>
-
-            <div class="col mt-3">
-              <a href="img/gallery/tumbnail/galleryMain2.jpeg" data-toggle="lightbox" data-caption="Rama & Sinta 2" data-galery="mygallery">
-                <img src="https://picsum.photos/id/5/1200/768" alt="Rama & Sinta 2" class="img-fluid w-100 rounded">
-              </a>
-            </div>
-            
-            <div class="col mt-3">
-              <a href="img/gallery/tumbnail/gallery1.jpeg" data-toggle="lightbox" data-caption="Rama & Sinta 3" data-galery="mygallery">
-                <img src="https://picsum.photos/id/500/1200/768" alt="Rama & Sinta 3" class="img-fluid w-100 rounded">
-              </a>
-            </div>
-            
-            <div class="col mt-3">
-              <a href="img/gallery/tumbnail/gallery2.jpeg" data-toggle="lightbox" data-caption="Rama & Sinta 4" data-galery="mygallery">
-                <img src="https://picsum.photos/id/900/1200/768" alt="Rama & Sinta 4" class="img-fluid w-100 rounded">
-              </a>
-            </div>
-            
-            <div class="col mt-3">
-              <a href="img/gallery/tumbnail/gallery3.jpeg" data-toggle="lightbox" data-caption="Rama & Sinta 5" data-galery="mygallery">
-                <img src="https://picsum.photos/id/700/1200/768" alt="Rama & Sinta 5" class="img-fluid w-100 rounded">
-              </a>
-            </div>
-            
-            <div class="col mt-3">
-              <a href="img/gallery/tumbnail/gallery4.jpeg" data-toggle="lightbox" data-caption="Rama & Sinta 6" data-galery="mygallery">
-                <img src="https://picsum.photos/id/375/1200/768" alt="Rama & Sinta 6" class="img-fluid w-100 rounded">
-              </a>
-            </div>
-            
-            <div class="col mt-3">
-              <a href="img/gallery/tumbnail/galleryMain2.jpeg" data-toggle="lightbox" data-caption="Rama & Sinta 7" data-galery="mygallery">
-                <img src="https://picsum.photos/id/260/1200/768" alt="Rama & Sinta 7" class="img-fluid w-100 rounded">
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-     </section>
-
-    <!-- rsvp -->
-     <section id="rsvp" class="rsvp">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-10 text-center">
-            <h2>Konfirmasi Kehadiran</h2>
-            <p>Isi form di bawah ini untuk melakukan konfirmasi kehadiran.</p>
-          </div>
-
-          <form class="row row-cols-md-auto g-3 align-items-center justify-content-center" method="POST" 
-          action="https://script.google.com/macros/s/AKfycbzonA-VRMB8dyMizhVNdsWeHFaeTUrcex8kHIL4iKZfs0Kuymo-rhFMn3ORmPjxIFOQ/exec" id="my-form">
-            <div class="col-12">
-              <div class="mb-3">
-                <label for="nama" class="form-label">Nama</label>
-                <input type="text" class="form-control" id="nama" name="nama">
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="mb-3">
-                <label for="jumlah" class="form-label">Jumlah keluarga hadir</label>
-                <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5" length="1" value="1">
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="mb-3">
-                <label for="status" class="form-label">Konfirmasi</label>
-                <select name="status" id="status" class="form-select">
-                  <option selected>Pilih salah satu</option>
-                  <option value="Hadir">Hadir</option>
-                  <option value="Tidak Hadir">Tidak Hadir</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="col-12" style="margin-top: 30px">
-              <button class="btn btn-primary">Kirim</button>
-            </div>
-          </form>
-
-          <div class="row justify-content-center mt-5">
-            <div class="col-md-8">
-              <!-- code bagian coment tamu undangan menggunakan disqus -->
-              <div id="disqus_thread"></div>
-              <script>
-                  /**
-                  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                  /*
-                  var disqus_config = function () {
-                  this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                  this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                  };
-                  */
-                  (function() { // DON'T EDIT BELOW THIS LINE
-                  var d = document, s = d.createElement('script');
-                  s.src = 'https://mywedding1-1.disqus.com/embed.js';
-                  s.setAttribute('data-timestamp', +new Date());
-                  (d.head || d.body).appendChild(s);
-                  })();
-              </script>
-              <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            </div>
-          </div>
-
-        </div>
-     </section>
-
-     <!-- gifts -->
-     <section id="gifts" class="gifts">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-10 text-center">
-            <span>ungkapan tanda kasih</span>
-            <h2>Kirim Hadiah</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, eum.</p>
-          </div>
-        </div>
-
-        <div class="row justify-content-center text-center">
-          <div class="col-md-6">
-            <ul class="list-group">
-              <li class="list-group-item">
-               <div class="fw-bold">BCA</div>  
-                1234567 - Rama
-              </li>
-              <li class="list-group-item">
-               <div class="fw-bold">Saweria</div>  
-                <img src="" alt="" class="" width="">
-              </li>
-            </ul>
-          </div>
-        </div>
-     </section>
-
-     <!-- footer -->
-      <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col text-center">
-              <small class="block">&copy;2025 Dino Wedding. All Rights Reserved.</small>
-              <small class="block">Design by: <a href="https://instagram.com/">@Dino</a></small>
-              
-              <ul class="mt-3">
-                <li><a href="#"><i class="bi bi-instagram"></i></a></li>
-                <li><a href="#"><i class="bi bi-youtube"></i></a></li>
-                <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="#"><i class="bi bi-tiktok"></i></a></li>
-              </ul>
-            
-            </div>
-          </div>
-        </div>
-      </footer>
-
-      <!-- audio -->
-       <div id="audio-container">
-        <audio id="backSong" autoplay loop>
-          <source src="audio/cintaVina.mp3" type="audio/mp3">
-        </audio>
-
-        <div class="audio-icon-wrapper" style="display: none;">
-          <i class="bi bi-disc"></i>
-        </div>
-       </div>
-
-<!-- script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.5/dist/index.bundle.min.js"></script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        simplyCountdown('#countdown', {
-          year: 2025,
-          month: 5,
-          day: 22,
-          hours: 8, // Target hour [0-23], default: 0
-          minutes: 0, // Target minute [0-59], default: 0
-          seconds: 0, // Target second [0-59], default: 0
-          words: {
-            // Custom labels, with lambda for plurals
-            days: { root: 'day', lambda: (root, n) => (n > 1 ? root + 's' : root) },
-            hours: { root: 'hour', lambda: (root, n) => (n > 1 ? root + 's' : root) },
-            minutes: { root: 'minute', lambda: (root, n) => (n > 1 ? root + 's' : root) },
-            seconds: { root: 'second', lambda: (root, n) => (n > 1 ? root + 's' : root) },
-          },
-          plural: true, // Use plurals for labels
-          inline: false, // Inline format: e.g., "24 days, 4 hours, 2 minutes"
-          inlineSeparator: ', ', // Separator for inline format, default: ", "
-          inlineClass: 'simply-countdown-inline', // CSS class for inline countdown
-          enableUtc: false, // Use UTC time if true
-          refresh: 1000, // Refresh interval in ms, default: 1000
-          sectionClass: 'simply-section', // CSS class for each countdown section
-          amountClass: 'simply-amount', // CSS class for numeric values
-          wordClass: 'simply-word', // CSS class for unit labels
-          zeroPad: false, // Pad numbers with leading zero
-          removeZeroUnits: false, // Remove units with zero value
-          countUp: false, // Count up after reaching zero
-          onEnd: () => {}, // Callback when countdown ends
-          onStop: () => {}, // Callback when countdown is stopped
-          onResume: () => {}, // Callback when countdown is resumed
-          onUpdate: (params) => {}, // Callback when countdown is updated
-        });
-      });
-    </script>
-    <!-- solve hasil dari penanganan overflow -->
-    <script>
-      const stickyTop = document.querySelector('.sticky-top');
-      const offcanvas = document.querySelector('.offcanvas');
-
-        offcanvas.addEventListener('show.bs.offcanvas', function() {
-        stickyTop.style.overflow = 'visible';
-        });
-
-        offcanvas.addEventListener('hidden.bs.offcanvas', function() {
-        stickyTop.style.overflow = 'hidden';
-        });
-    </script>
-
-    <!-- disable scroll -->
-    <script>
-      const rootElement = document.querySelector(':root');
-      const audioIconWrapper = document.querySelector('.audio-icon-wrapper')
-      const audioIcon = document.querySelector('.audio-icon-wrapper i')
-      const backSong = document.querySelector('#backSong');
-      let isPlaying = false;
-
-      function disableScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-        window.onscroll = function() {
-          window.scrollTo(scrollTop, scrollLeft);
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #FAF8F5;
+            --color-card-bg: #FFFDF9;
+            --color-accent-bg: #FDF9F0;
+            --color-border-light: #E8DFD5;
+            --color-brown: #6C5B4C;
+            --color-brown-dark: #4A3E34;
+            --gold-accent: #C5A059;
+            --text-dark: #3D342E;
+            --text-muted: #7A6F66;
         }
 
-        rootElement.style.scrollBehavior = 'auto';
-      }
-
-      function enableScroll() {
-        window.onscroll = function() { }
-        rootElement.style.scrollBehavior = 'smooth';
-        //localStorage.setItem('opened', 'true');
-        playAudio()
-      }
-
-      //menggabungkan fungsi play audio dengan lihat undangan
-      function playAudio() {
-        backSong.volume = 0.5;
-        backSong.play();
-        audioIconWrapper.style.display = 'flex'
-        isPlaying = true;
-      }
-
-      audioIconWrapper.onclick = function () {
-        if (isPlaying) {
-          backSong.pause ();
-          audioIcon.classList.remove('bi-disc');
-          audioIcon.classList.add('bi-pause-circle');
-        } else {
-          backSong.play ();
-          audioIcon.classList.add('bi-disc');
-          audioIcon.classList.remove('bi-pause-circle');
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        isPlaying = !isPlaying;
-      }
-      // if(!localStorage.getItem('opened')){
-      //   disableScroll();
-      // }
-      disableScroll();
+        body {
+            background-color: #EFECE6;
+            color: var(--text-dark);
+            font-family: 'Cormorant Garamond', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .site-wrapper {
+            width: 100%;
+            max-width: 430px;
+            background-color: var(--bg-main);
+            box-shadow: 0 10px 40px rgba(74, 62, 52, 0.1);
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ----------------------------------
+           АУДІО ПЛЕЄР
+        ----------------------------------- */
+        .music-control {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 44px;
+            height: 44px;
+            background-color: var(--color-brown);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease;
+        }
+
+        .music-control.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .music-icon {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+        }
+
+        /* ----------------------------------
+           КОНВЕРТ (ЕКРАН 1)
+        ----------------------------------- */
+        .envelope-screen {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 430px;
+            height: 100vh;
+            background-color: var(--bg-main);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+            padding: 20px;
+        }
+
+        .envelope-screen.opened {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .invite-title {
+            font-family: 'Alex Brush', cursive;
+            font-size: 3.2rem;
+            color: var(--color-brown-dark);
+            margin-bottom: 40px;
+            text-align: center;
+            line-height: 1.1;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .envelope-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 45px;
+            line-height: 1.5;
+            animation: fadeInUp 1.5s ease;
+            max-width: 280px;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: 300px;
+            height: 210px;
+            background: var(--color-card-bg);
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(108, 91, 76, 0.15);
+            border: 1px solid var(--color-border-light);
+            cursor: pointer;
+            perspective: 1000px;
+            animation: pulseEnvelope 3s infinite alternate;
+        }
+
+        @keyframes pulseEnvelope {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.02); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 115px solid var(--color-border-light);
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 3;
+        }
+
+        .envelope-wrapper.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .seal-pearl {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #ffffff, #f0e6d6, #b89f82);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2), inset -2px -2px 5px rgba(0,0,0,0.15);
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-brown-dark);
+            font-weight: 600;
+        }
+
+        .envelope-wrapper.open .seal-pearl {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        /* ----------------------------------
+           ПОСТУПОВА АНІМАЦІЯ ПОЯВИ (STAGGERED)
+        ----------------------------------- */
+        .main-content {
+            display: none;
+            padding: 30px 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Затримки для поступового виринання */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.25s; }
+        .delay-3 { transition-delay: 0.4s; }
+
+        /* ГОЛОВНА КАРТКА */
+        .hero-card {
+            background-color: var(--color-accent-bg);
+            color: var(--color-brown-dark);
+            border-radius: 120px;
+            padding: 55px 25px;
+            border: 1px solid var(--color-border-light);
+            outline: 6px solid var(--color-accent-bg);
+            outline-offset: -12px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(108, 91, 76, 0.08);
+        }
+
+        .pearl-badge {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #ffffff, #f7f1e5, #c2b09b);
+            margin: 0 auto 20px auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12), inset -2px -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .names {
+            font-family: 'Alex Brush', cursive;
+            font-size: 3.3rem;
+            line-height: 1.2;
+            color: var(--color-brown-dark);
+        }
+
+        .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--gold-accent);
+            display: block;
+            margin: 3px 0;
+        }
+
+        .hero-quote {
+            font-size: 1.05rem;
+            font-weight: 300;
+            margin: 25px 0 30px 0;
+            line-height: 1.5;
+            color: var(--text-dark);
+        }
+
+        .hero-date {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.8rem;
+            color: var(--color-brown);
+            line-height: 1;
+        }
+
+        /* РОЗДІЛЮВАЧ */
+        .pearl-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .pearl-divider .line {
+            height: 1px;
+            width: 70px;
+            background: linear-gradient(to right, transparent, var(--color-border-light), transparent);
+        }
+
+        .small-pearl {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #ded4c5);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* КАЛЕНДАР */
+        .calendar-title {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.8rem;
+            color: var(--color-brown-dark);
+            margin-bottom: 20px;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            max-width: 300px;
+            margin: 0 auto;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .day-name { font-weight: 400; color: var(--text-muted); margin-bottom: 5px; }
+
+        .day-num {
+            padding: 8px 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .day-num.active {
+            background: radial-gradient(circle at 35% 35%, #ffffff, #f7f1e5, #d2c1ad);
+            color: var(--color-brown-dark);
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(108, 91, 76, 0.15);
+        }
+
+        /* ЛОКАЦІЯ */
+        .location-box {
+            border: 1px solid var(--color-border-light);
+            padding: 35px 20px;
+            border-radius: 24px;
+            background-color: var(--color-card-bg);
+            box-shadow: 0 6px 20px rgba(108, 91, 76, 0.04);
+        }
+
+        .location-title {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-brown-dark);
+            margin-bottom: 5px;
+        }
+
+        .location-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold-accent);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .btn-custom {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 28px;
+            border: 1px solid var(--color-brown);
+            border-radius: 30px;
+            color: var(--color-brown-dark);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--color-brown);
+            color: #ffffff;
+        }
+
+        /* ЗВОРОТНИЙ ВІДЛІК */
+        .countdown-title {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.6rem;
+            color: var(--color-brown-dark);
+            margin-bottom: 20px;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .countdown-item {
+            background: var(--color-card-bg);
+            border: 1px solid var(--color-border-light);
+            border-radius: 16px;
+            padding: 14px 8px;
+            min-width: 68px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .countdown-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--color-brown);
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ----------------------------------
+           ДРЕС-КОД ТА БЛОК ДЛЯ ДІВЧАТ
+        ----------------------------------- */
+        .dresscode-card {
+            background-color: var(--color-card-bg);
+            border: 1px solid var(--color-border-light);
+            border-radius: 28px;
+            padding: 40px 22px;
+            box-shadow: 0 8px 25px rgba(108, 91, 76, 0.05);
+        }
+
+        .dresscode-main-text {
+            font-size: 1.15rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-dark);
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .fabric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            max-width: 250px;
+            margin: 30px auto 25px auto;
+        }
+
+        .fabric-swatch {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #ffffff;
+            transition: transform 0.4s ease;
+        }
+
+        .fabric-swatch:hover { transform: scale(1.08); }
+
+        .swatch-1 { background-image: url('https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-2 { background-image: url('https://images.unsplash.com/photo-1550046175-685b31df6810?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-3 { background-image: url('https://images.unsplash.com/photo-1584345532588-e21b7484df0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-4 { background-image: url('https://images.unsplash.com/photo-1614031940177-3e11fb5bbdc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-5 { background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-6 { background-image: url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+
+        /* ОРИГІНАЛЬНИЙ БЛОК ПРОХАННЯ ДЛЯ ДІВЧАТ */
+        .girls-notice-box {
+            background-color: #FAF5EB;
+            border: 1px dashed #D4C3AC;
+            border-radius: 16px;
+            padding: 20px 18px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .girls-notice-text {
+            font-size: 1.15rem;
+            line-height: 1.5;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .sparkle-icon {
+            color: #E2B755;
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        /* ТАЙМІНГ ТА ІНШІ СЕКЦІЇ */
+        .timeline { position: relative; max-width: 320px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--color-border-light) 15%, var(--color-border-light) 85%, transparent); transform: translateX(-50%); }
+        .timeline-item { position: relative; margin-bottom: 35px; background: var(--color-card-bg); padding: 15px; border-radius: 15px; border: 1px solid rgba(216, 197, 176, 0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .timeline-badge { width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ffffff, #ded5c5); position: absolute; left: 50%; top: -20px; transform: translateX(-50%); box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+        .timeline-time { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: var(--gold-accent); margin-top: 4px; font-weight: 500; }
+        .timeline-event { font-size: 1.4rem; font-style: italic; }
+
+        .rsvp-card { background-color: var(--color-accent-bg); border: 1px solid var(--color-border-light); border-radius: 24px; padding: 35px 20px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-brown); margin-bottom: 8px; }
+        .form-input, .form-select { width: 100%; padding: 12px 15px; border: 1px solid var(--color-border-light); border-radius: 12px; background-color: var(--color-card-bg); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-dark); outline: none; }
+        
+        .tg-card { background-color: var(--color-brown); color: #ffffff; border-radius: 24px; padding: 35px 20px; border: 1px solid var(--color-border-light); }
+        .tg-icon { width: 45px; height: 45px; fill: var(--color-accent-bg); margin-bottom: 15px; }
+        .btn-tg { display: inline-block; margin-top: 20px; padding: 14px 28px; background-color: var(--color-accent-bg); color: var(--color-brown-dark); border-radius: 30px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        .wishes-card { background-color: var(--color-card-bg); color: var(--text-dark); padding: 35px 20px; border-radius: 24px; border: 1px solid var(--color-border-light); }
+    </style>
+</head>
+<body>
+
+    <!-- Композиція: Alex Warren - Ordinary -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="site-wrapper">
+
+        <!-- ==============================================
+             1. КОНВЕРТ
+        =============================================== -->
+        <div class="envelope-screen" id="envelopeScreen">
+            <h1 class="invite-title">Ви запрошені<br>на весілля</h1>
+            
+            <div class="envelope-wrapper" id="envelopeWrapper">
+                <div class="envelope-flap"></div>
+                <div class="seal-pearl">Відкрити</div>
+            </div>
+
+            <p class="envelope-quote">
+                «Кохання — це не дивитися одне на одного,<br>а дивитися разом в одному напрямку...»
+            </p>
+        </div>
+
+        <!-- ==============================================
+             2. ОСНОВНИЙ ВМІСТ
+        =============================================== -->
+        <div class="main-content" id="mainContent">
+
+            <!-- ГОЛОВНА КАРТКА -->
+            <div class="section">
+                <div class="hero-card stagger-item delay-1">
+                    <div class="pearl-badge"></div>
+                    <div class="names">
+                        Микола
+                        <span class="ampersand">&</span>
+                        Анастасія
+                    </div>
+                    <p class="hero-quote">
+                        Ми раді поділитися чудовою новиною — ми одружуємося!
+                    </p>
+                    <div class="hero-date">
+                        09 . 09 . 26
+                    </div>
+                </div>
+            </div>
+
+            <div class="pearl-divider stagger-item delay-2">
+                <div class="line"></div>
+                <div class="small-pearl"></div>
+                <div class="line"></div>
+            </div>
+
+            <!-- КАЛЕНДАР -->
+            <div class="section">
+                <p class="stagger-item delay-1" style="text-transform: uppercase; font-family: 'Montserrat'; font-size: 0.75rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 10px;">Запрошуємо вас на наше весілля!</p>
+                <div class="calendar-title stagger-item delay-2">Вересень, 2026</div>
+
+                <div class="calendar-grid stagger-item delay-3">
+                    <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">НД</div>
+                    <div class="day-num" style="opacity: 0.3;">31</div><div class="day-num">1</div><div class="day-num">2</div><div class="day-num">3</div><div class="day-num">4</div><div class="day-num">5</div><div class="day-num">6</div>
+                    <div class="day-num">7</div><div class="day-num">8</div><div class="day-num active">9</div><div class="day-num">10</div><div class="day-num">11</div><div class="day-num">12</div><div class="day-num">13</div>
+                </div>
+                <p class="stagger-item delay-3" style="font-size: 1.05rem; font-style: italic; margin-top: 25px; color: var(--text-muted);">— день, коли наша любов стане родиною</p>
+            </div>
+
+            <!-- ЗВОРОТНИЙ ВІДЛІК -->
+            <div class="section">
+                <div class="countdown-title stagger-item delay-1">До свята залишилося</div>
+                <div class="countdown-container stagger-item delay-2">
+                    <div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">днів</div></div>
+                    <div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-label">годин</div></div>
+                    <div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">хвилин</div></div>
+                    <div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">секунд</div></div>
+                </div>
+            </div>
+
+            <div class="pearl-divider stagger-item delay-1"><div class="line"></div><div class="small-pearl"></div><div class="line"></div></div>
+
+            <!-- ЛОКАЦІЯ -->
+            <div class="section">
+                <div class="location-box stagger-item delay-1">
+                    <svg style="width: 50px; height: 50px; margin: 0 auto 15px auto; opacity: 0.8;" viewBox="0 0 64 64" fill="none" stroke="#6C5B4C" stroke-width="1.5">
+                        <path d="M20 18C20 28 32 32 32 42M44 18C44 28 32 32 32 42M32 42V54M22 54H42"/>
+                        <path d="M14 18H50L46 6H18L14 18Z"/>
+                    </svg>
+                    <div class="location-title">Ресторан Rivali</div>
+                    <div class="location-subtitle">м. Вінниця</div>
+                    <p style="color: var(--text-muted); font-size: 1.05rem;">Чекаємо на вас за адресою ресторану</p>
+                    <a href="https://maps.google.com/?q=Rivali+Вінниця" target="_blank" class="btn-custom">Показати на карті</a>
+                </div>
+            </div>
+
+            <!-- ТАЙМІНГ -->
+            <div class="section">
+                <div class="stagger-item delay-1" style="font-family: 'Alex Brush', cursive; font-size: 3rem; color: var(--color-brown-dark); margin-bottom: 30px;">Таймінг</div>
+                <div class="timeline">
+                    <div class="timeline-item stagger-item delay-1"><div class="timeline-badge"></div><div class="timeline-event">Збір гостей</div><div class="timeline-time">13:00</div></div>
+                    <div class="timeline-item stagger-item delay-2"><div class="timeline-badge"></div><div class="timeline-event">Церемонія</div><div class="timeline-time">14:00</div></div>
+                    <div class="timeline-item stagger-item delay-3"><div class="timeline-badge"></div><div class="timeline-event">Святковий банкет</div><div class="timeline-time">15:00</div></div>
+                    <div class="timeline-item stagger-item delay-1"><div class="timeline-badge"></div><div class="timeline-event">Весільний торт</div><div class="timeline-time">18:00</div></div>
+                    <div class="timeline-item stagger-item delay-2"><div class="timeline-badge"></div><div class="timeline-event">Завершення вечора</div><div class="timeline-time">20:00</div></div>
+                </div>
+            </div>
+
+            <!-- ДРЕС-КОД -->
+            <div class="section">
+                <div class="stagger-item delay-1" style="font-family: 'Alex Brush', cursive; font-size: 3.2rem; color: var(--color-brown-dark); margin-bottom: 25px;">Дрес-код</div>
+                
+                <div class="dresscode-card stagger-item delay-2">
+                    <p class="dresscode-main-text">
+                        Дрес-коду як такого не буде, адже для нас головне — ваша присутність та комфорт!
+                    </p>
+
+                    <!-- Палітра з 6 тканин у 2 ряди -->
+                    <div class="fabric-grid">
+                        <div class="fabric-swatch swatch-1"></div>
+                        <div class="fabric-swatch swatch-2"></div>
+                        <div class="fabric-swatch swatch-3"></div>
+                        <div class="fabric-swatch swatch-4"></div>
+                        <div class="fabric-swatch swatch-5"></div>
+                        <div class="fabric-swatch swatch-6"></div>
+                    </div>
+
+                    <!-- ПОВЕРНУТО ОРИГІНАЛЬНЕ ПРОХАННЯ ДЛЯ ДІВЧАТ -->
+                    <div class="girls-notice-box">
+                        <p class="girls-notice-text">
+                            <span class="sparkle-icon">✨</span> <strong>Окреме прохання до чарівних дівчат:</strong> будь ласка, утримайтеся від білосніжних та білих суконь.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- АНКЕТА RSVP -->
+            <div class="section">
+                <div class="stagger-item delay-1" style="font-family: 'Alex Brush', cursive; font-size: 3rem; color: var(--color-brown-dark); margin-bottom: 25px;">Анкета гостя</div>
+                <div class="rsvp-card stagger-item delay-2">
+                    <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 20px;">Підтвердьте вашу присутність до 20 серпня 2026 року:</p>
+                    <form onsubmit="event.preventDefault(); alert('Дякуємо! Вашу відповідь збережено.');">
+                        <div class="form-group"><label class="form-label">Ваше ім'я та прізвище</label><input type="text" class="form-input" placeholder="Олександр та Олена" required></div>
+                        <div class="form-group">
+                            <label class="form-label">Чи зможете бути з нами?</label>
+                            <select class="form-select" required>
+                                <option value="">Оберіть відповідь...</option>
+                                <option value="yes">Так, із задоволенням!</option>
+                                <option value="pair">Прийду зі супутником/супутницею</option>
+                                <option value="no">На жаль, не зможу</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-custom" style="width: 100%;">Підтвердити участь</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TELEGRAM КАНАЛ -->
+            <div class="section">
+                <div class="tg-card stagger-item delay-1">
+                    <svg class="tg-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                    <div style="font-family: 'Alex Brush', cursive; font-size: 2.8rem; color: var(--color-accent-bg); line-height: 1;">Живі моменти</div>
+                    <p style="font-size: 1.05rem; font-weight: 300; margin-top: 15px; line-height: 1.5;">Діліться своїми фото та відео у нашому спільному Telegram-каналі весілля!</p>
+                    <a href="https://t.me" target="_blank" class="btn-tg">Перейти у канал</a>
+                </div>
+            </div>
+
+            <!-- ПОБАЖАННЯ -->
+            <div class="section">
+                <div class="wishes-card stagger-item delay-1">
+                    <div style="font-family: 'Alex Brush', cursive; font-size: 3.5rem; color: var(--color-brown); line-height: 1;">Побажання</div>
+                    <p style="font-size: 1.05rem; font-weight: 300; line-height: 1.6; margin-top: 15px;">
+                        Ми вирушаємо у весільну подорож одразу після святкування, тож, на жаль, квіти не зможуть поїхати з нами.<br><br>
+                        Натомість будемо раді конверту і вашій щирій посмішці!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Кнопка плеєра -->
+    <div class="music-control" id="musicBtn" onclick="toggleMusic()">
+        <svg class="music-icon" id="musicIcon" viewBox="0 0 24 24">
+            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+    </div>
+
+    <!-- JS Скрипти -->
+    <script>
+        const envelopeScreen = document.getElementById('envelopeScreen');
+        const envelopeWrapper = document.getElementById('envelopeWrapper');
+        const mainContent = document.getElementById('mainContent');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isMusicPlaying = false;
+
+        // 1. Відкриття конверту та запуск мелодії Alex Warren - Ordinary
+        envelopeWrapper.addEventListener('click', () => {
+            envelopeWrapper.classList.add('open');
+            
+            bgMusic.play().then(() => {
+                isMusicPlaying = true;
+                musicBtn.classList.add('visible');
+            }).catch(err => console.log("Audio play blocked by browser"));
+
+            setTimeout(() => {
+                envelopeScreen.classList.add('opened');
+                mainContent.style.display = 'block';
+                
+                setTimeout(() => {
+                    initStaggerAnimations();
+                }, 100);
+            }, 800);
+        });
+
+        // 2. Керування аудіо
+        function toggleMusic() {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                document.getElementById('musicIcon').innerHTML = '<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/><line x1="2" y1="2" x2="22" y2="22" stroke="white" stroke-width="2"/>';
+            } else {
+                bgMusic.play();
+                document.getElementById('musicIcon').innerHTML = '<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>';
+            }
+            isMusicPlaying = !isMusicPlaying;
+        }
+
+        // 3. Плавна та поступова анімація появи елементів
+        function initStaggerAnimations() {
+            const staggerItems = document.querySelectorAll('.stagger-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -30px 0px" });
+
+            staggerItems.forEach(el => observer.observe(el));
+        }
+
+        // 4. Зворотний відлік
+        const weddingDate = new Date("September 9, 2026 13:00:00").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
+
+            if (difference > 0) {
+                document.getElementById("days").innerText = String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, '0');
+                document.getElementById("hours").innerText = String(Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+                document.getElementById("minutes").innerText = String(Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+                document.getElementById("seconds").innerText = String(Math.floor((difference % (1000 * 60)) / 1000)).padStart(2, '0');
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
-
-    <!-- js penanganan pengembalian hasil form -->
-     <script>
-      window.addEventListener("load", function() {
-      const form = document.getElementById('my-form');
-      form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const action = e.target.action;
-      fetch(action, {
-      method: 'POST',
-      body: data,
-      })
-      .then(() => {
-      alert("Konfirmasi kehadiran, Success!");
-      })
-      });
-      });
-
-     </script>
-
-     <!-- js menamai undangan sesuai nama tamu -->
-     <script>
-      const urlParams = new URLSearchParams(window.location.search); //pengambilan parameter dari url yang bernilai nama tamu
-      const nama = urlParams.get('n') || '';
-      const pronoun = urlParams.get('p') || '';
-
-      // pemanggilan element yang akan diisi nama dari url
-      const namaContainer = document.querySelector('.hero h4 span');
-      namaContainer.innerText = `${pronoun} ${nama},`;
-
-      document.querySelector('#nama').value = nama;
-     </script>
-
-  </body>
+</body>
 </html>
