@@ -8,16 +8,20 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-pearl: #FAF8F5;
-            --green-main: #2A3B31;
-            --gold-accent: #D4AF37;
-            --gold-light: #E8D5B5;
-            --text-dark: #2C2C2C;
-            --text-muted: #666666;
+            --color-milk: #FFFDF9;
+            --color-banana: #FDF7E7;
+            --color-coffee-light: #E8DFD5;
+            --color-coffee: #6C5B4C;
+            --color-coffee-dark: #4A3E34;
+            --gold-light: #D8C5B0;
+            --gold-accent: #C5A059;
+            --text-dark: #3D342E;
+            --text-muted: #7A6F66;
         }
 
         * {
@@ -27,88 +31,230 @@
         }
 
         body {
-            background-color: var(--bg-pearl);
+            background-color: #EFECE6;
             color: var(--text-dark);
             font-family: 'Cormorant Garamond', serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-        }
-
-        .site-container {
-            width: 100%;
-            max-width: 430px;
-            background-color: var(--bg-pearl);
-            box-shadow: 0 0 30px rgba(0,0,0,0.05);
-            padding: 30px 20px;
             overflow-x: hidden;
         }
 
+        .site-wrapper {
+            width: 100%;
+            max-width: 430px;
+            background-color: var(--bg-pearl);
+            box-shadow: 0 10px 40px rgba(74, 62, 52, 0.1);
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ----------------------------------
+           АНІМАЦІЯ КОНВЕРТА (SCREEN 1)
+        ----------------------------------- */
+        .envelope-screen {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 430px;
+            height: 100vh;
+            background-color: var(--bg-pearl);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1.2s ease, visibility 1.2s ease;
+            padding: 20px;
+        }
+
+        .envelope-screen.opened {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .envelope-wrapper {
+            position: relative;
+            width: 290px;
+            height: 200px;
+            background: var(--color-milk);
+            border-radius: 8px;
+            box-shadow: 0 15px 35px rgba(108, 91, 76, 0.15);
+            border: 1px solid var(--gold-light);
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        /* Клапан конверта */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 145px solid transparent;
+            border-right: 145px solid transparent;
+            border-top: 110px solid var(--color-coffee-light);
+            transform-origin: top;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 3;
+        }
+
+        .envelope-wrapper.open .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        /* Воскова печатка / Перлина */
+        .seal-pearl {
+            position: absolute;
+            top: 95px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #ffffff, #f0e6d6, #b89f82);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2), inset -2px -2px 4px rgba(0,0,0,0.15);
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .seal-pearl::after {
+            content: "✦";
+            color: var(--color-coffee);
+            font-size: 14px;
+        }
+
+        .envelope-wrapper.open .seal-pearl {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+
+        .envelope-text {
+            margin-top: 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-coffee);
+            animation: pulseText 2s infinite;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* ----------------------------------
+           ОСНОВНИЙ КОНТЕНТ ТА АНІМАЦІЇ
+        ----------------------------------- */
+        .main-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease 0.4s, transform 1s ease 0.4s;
+            padding: 30px 20px;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .section {
-            margin-bottom: 45px;
+            margin-bottom: 50px;
             text-align: center;
             position: relative;
         }
 
-        /* ГОЛОВНА КАРТКА */
+        /* ГОЛОВНА КАРТКА (Ніжно-банановий / Кавовий) */
         .hero-card {
-            background-color: var(--green-main);
-            color: #ffffff;
+            background-color: var(--color-banana);
+            color: var(--color-coffee-dark);
             border-radius: 120px;
-            padding: 50px 25px;
+            padding: 55px 25px;
             border: 1px solid var(--gold-light);
-            outline: 6px solid var(--green-main);
+            outline: 6px solid var(--color-banana);
             outline-offset: -12px;
             position: relative;
-            box-shadow: 0 10px 25px rgba(42, 59, 49, 0.15);
+            box-shadow: 0 10px 30px rgba(108, 91, 76, 0.08);
         }
 
         .pearl-badge {
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #ffffff, #e6e0d4, #b8ab97);
+            background: radial-gradient(circle at 35% 35%, #ffffff, #f7f1e5, #c2b09b);
             margin: 0 auto 20px auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset -2px -2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12), inset -2px -2px 4px rgba(0,0,0,0.1);
         }
 
         .names {
             font-family: 'Alex Brush', cursive;
-            font-size: 3.2rem;
+            font-size: 3.3rem;
             line-height: 1.2;
-            color: #ffffff;
-            font-weight: 400;
+            color: var(--color-coffee-dark);
         }
 
         .ampersand {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
-            color: var(--gold-light);
+            color: var(--gold-accent);
             display: block;
-            margin: 5px 0;
+            margin: 3px 0;
         }
 
         .hero-quote {
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 300;
-            margin: 25px 0 35px 0;
-            opacity: 0.9;
+            margin: 25px 0 30px 0;
             line-height: 1.5;
+            color: var(--text-dark);
         }
 
         .hero-date {
             font-family: 'Alex Brush', cursive;
             font-size: 2.8rem;
-            letter-spacing: 2px;
-            color: var(--gold-light);
+            color: var(--color-coffee);
             line-height: 1;
+        }
+
+        /* РОЗДІЛЮВАЧ 3 ПЕРЛИНАМИ */
+        .pearl-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 35px 0;
+        }
+
+        .pearl-divider .line {
+            height: 1px;
+            width: 70px;
+            background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+        }
+
+        .small-pearl {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffffff, #ded4c5);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         /* КАЛЕНДАР */
         .calendar-title {
             font-family: 'Alex Brush', cursive;
             font-size: 2.8rem;
+            color: var(--color-coffee-dark);
             margin-bottom: 20px;
         }
 
@@ -137,10 +283,10 @@
         }
 
         .day-num.active {
-            background: radial-gradient(circle at 35% 35%, #ffffff, #e6e0d4, #c2b59b);
-            color: var(--green-main);
+            background: radial-gradient(circle at 35% 35%, #ffffff, #f7f1e5, #d2c1ad);
+            color: var(--color-coffee-dark);
             font-weight: 600;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 3px 8px rgba(108, 91, 76, 0.15);
         }
 
         .calendar-note {
@@ -150,92 +296,90 @@
             color: var(--text-muted);
         }
 
-        /* РОЗДІЛЮВАЧ */
-        .pearl-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin: 35px 0;
-        }
-
-        .pearl-divider .line {
-            height: 1px;
-            width: 80px;
-            background: linear-gradient(to right, transparent, var(--gold-light), transparent);
-        }
-
-        .small-pearl {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ffffff, #d8d0c0);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* ЛОКАЦІЯ */
+        /* ЛОКАЦІЯ ВІННИЦЯ RIVALI */
         .location-box {
             border: 1px solid var(--gold-light);
-            padding: 30px 20px;
-            border-radius: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            padding: 35px 20px;
+            border-radius: 24px;
+            background-color: var(--color-milk);
+            box-shadow: 0 6px 20px rgba(108, 91, 76, 0.04);
+            position: relative;
         }
 
-        .location-name {
-            font-size: 1.6rem;
+        .location-graphic {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px auto;
+            opacity: 0.8;
+        }
+
+        .location-title {
+            font-size: 1.8rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            color: var(--color-coffee-dark);
+            margin-bottom: 5px;
         }
 
-        .btn-map {
+        .location-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            color: var(--gold-accent);
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .btn-custom {
             display: inline-block;
             margin-top: 20px;
-            padding: 12px 30px;
-            border: 1px solid var(--green-main);
+            padding: 12px 28px;
+            border: 1px solid var(--color-coffee);
             border-radius: 30px;
-            color: var(--green-main);
+            color: var(--color-coffee-dark);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
+            background-color: transparent;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .btn-map:hover {
-            background-color: var(--green-main);
+        .btn-custom:hover {
+            background-color: var(--color-coffee);
             color: #ffffff;
         }
 
         /* ЗВОРОТНИЙ ВІДЛІК */
         .countdown-title {
             font-family: 'Alex Brush', cursive;
-            font-size: 2.5rem;
+            font-size: 2.6rem;
+            color: var(--color-coffee-dark);
             margin-bottom: 20px;
         }
 
         .countdown-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .countdown-item {
-            background: #ffffff;
+            background: var(--color-milk);
             border: 1px solid var(--gold-light);
             border-radius: 16px;
-            padding: 15px 10px;
-            min-width: 70px;
+            padding: 14px 8px;
+            min-width: 68px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.02);
         }
 
         .countdown-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            color: var(--green-main);
+            color: var(--color-coffee);
             line-height: 1;
         }
 
@@ -245,13 +389,14 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
-            margin-top: 5px;
+            margin-top: 4px;
         }
 
         /* ТАЙМІНГ */
         .section-title {
             font-family: 'Alex Brush', cursive;
             font-size: 3rem;
+            color: var(--color-coffee-dark);
             margin-bottom: 30px;
         }
 
@@ -275,11 +420,11 @@
         .timeline-item {
             position: relative;
             margin-bottom: 35px;
-            background: #ffffff;
+            background: var(--color-milk);
             padding: 15px;
             border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid rgba(216, 197, 176, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
         }
 
         .timeline-badge {
@@ -291,15 +436,15 @@
             left: 50%;
             top: -20px;
             transform: translateX(-50%);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
         }
 
         .timeline-time {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            font-weight: 300;
-            color: var(--text-muted);
-            margin-top: 5px;
+            font-size: 0.95rem;
+            color: var(--gold-accent);
+            margin-top: 4px;
+            font-weight: 500;
         }
 
         .timeline-event {
@@ -308,207 +453,401 @@
         }
 
         /* ДРЕС-КОД */
-        .color-palette {
+        .dresscode-card {
+            background-color: var(--color-milk);
+            border: 1px solid var(--gold-light);
+            border-radius: 24px;
+            padding: 30px 20px;
+        }
+
+        .avoid-colors {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin: 25px 0;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
         }
 
         .color-circle {
-            width: 40px;
-            height: 40px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .color-circle::after {
+            content: "✕";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 12px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .white-dress-note {
+            background-color: var(--color-banana);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 1.05rem;
+            border: 1px dashed var(--gold-light);
+            color: var(--color-coffee-dark);
+        }
+
+        /* RSVP АНКЕТА */
+        .rsvp-card {
+            background-color: var(--color-banana);
+            border: 1px solid var(--gold-light);
+            border-radius: 24px;
+            padding: 35px 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-coffee);
+            margin-bottom: 8px;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gold-light);
+            border-radius: 12px;
+            background-color: var(--color-milk);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            outline: none;
+        }
+
+        .form-input:focus, .form-select:focus {
+            border-color: var(--color-coffee);
+        }
+
+        /* TELEGRAM РАЗДЕЛ */
+        .tg-card {
+            background-color: var(--color-coffee);
+            color: #ffffff;
+            border-radius: 24px;
+            padding: 35px 20px;
+            border: 1px solid var(--gold-light);
+        }
+
+        .tg-icon {
+            width: 45px;
+            height: 45px;
+            fill: var(--color-banana);
+            margin-bottom: 15px;
+        }
+
+        .btn-tg {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            background-color: var(--color-banana);
+            color: var(--color-coffee-dark);
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-tg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
         /* ПОБАЖАННЯ */
         .wishes-card {
-            background-color: var(--green-main);
-            color: #ffffff;
+            background-color: var(--color-milk);
+            color: var(--text-dark);
             padding: 35px 20px;
-            border-radius: 30px;
+            border-radius: 24px;
             border: 1px solid var(--gold-light);
-        }
-
-        .wishes-number {
-            font-family: 'Alex Brush', cursive;
-            font-size: 3.5rem;
-            color: var(--gold-light);
-            line-height: 1;
-        }
-
-        .wishes-text {
-            font-size: 1.05rem;
-            font-weight: 300;
-            line-height: 1.6;
-            margin-top: 15px;
         }
     </style>
 </head>
 <body>
 
-    <div class="site-container">
+    <div class="site-wrapper">
 
-        <!-- 1. ГОЛОВНА КАРТКА -->
-        <div class="section">
-            <div class="hero-card">
-                <div class="pearl-badge"></div>
-                <div class="names">
-                    Микола
-                    <span class="ampersand">&</span>
-                    Анастасія
-                </div>
-                <p class="hero-quote">
-                    Ми раді поділитися чудовою новиною — ми одружуємося!
-                </p>
-                <div class="hero-date">
-                    09 . 09 . 26
+        <!-- ==============================================
+             1. АНІМОВАНИЙ КОНВЕРТ (ОБЛАКЛАДКА)
+        =============================================== -->
+        <div class="envelope-screen" id="envelopeScreen">
+            <div class="envelope-wrapper" id="envelopeWrapper">
+                <div class="envelope-flap"></div>
+                <div class="seal-pearl"></div>
+            </div>
+            <div class="envelope-text">Натисніть, щоб відкрити</div>
+        </div>
+
+        <!-- ==============================================
+             ОСНОВНЕ ЗАПРОШЕННЯ (З'ЯВЛЯЄТЬСЯ ПІСЛЯ КЛІКУ)
+        =============================================== -->
+        <div class="main-content" id="mainContent">
+
+            <!-- ГОЛОВНА КАРТКА -->
+            <div class="section">
+                <div class="hero-card">
+                    <div class="pearl-badge"></div>
+                    <div class="names">
+                        Микола
+                        <span class="ampersand">&</span>
+                        Анастасія
+                    </div>
+                    <p class="hero-quote">
+                        Ми раді поділитися чудовою новиною — ми одружуємося!
+                    </p>
+                    <div class="hero-date">
+                        09 . 09 . 26
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="pearl-divider">
-            <div class="line"></div>
-            <div class="small-pearl"></div>
-            <div class="line"></div>
-        </div>
-
-        <!-- 2. КАЛЕНДАР (Вересень 2026) -->
-        <div class="section">
-            <p style="text-transform: uppercase; font-family: 'Montserrat'; font-size: 0.75rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 10px;">Запрошуємо вас на наше весілля!</p>
-            
-            <div class="calendar-title">Вересень, 2026</div>
-
-            <div class="calendar-grid">
-                <div class="day-name">ПН</div>
-                <div class="day-name">ВТ</div>
-                <div class="day-name">СР</div>
-                <div class="day-name">ЧТ</div>
-                <div class="day-name">ПТ</div>
-                <div class="day-name">СБ</div>
-                <div class="day-name">НД</div>
-
-                <div class="day-num" style="opacity: 0.3;">31</div>
-                <div class="day-num">1</div>
-                <div class="day-num">2</div>
-                <div class="day-num">3</div>
-                <div class="day-num">4</div>
-                <div class="day-num">5</div>
-                <div class="day-num">6</div>
-
-                <div class="day-num">7</div>
-                <div class="day-num">8</div>
-                <div class="day-num active">9</div>
-                <div class="day-num">10</div>
-                <div class="day-num">11</div>
-                <div class="day-num">12</div>
-                <div class="day-num">13</div>
+            <!-- РОЗДІЛЮВАЧ -->
+            <div class="pearl-divider">
+                <div class="line"></div>
+                <div class="small-pearl"></div>
+                <div class="line"></div>
             </div>
 
-            <p class="calendar-note">— день, коли наша любов стане родиною</p>
-        </div>
+            <!-- КАЛЕНДАР -->
+            <div class="section">
+                <p style="text-transform: uppercase; font-family: 'Montserrat'; font-size: 0.75rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 10px;">Запрошуємо вас на наше весілля!</p>
+                <div class="calendar-title">Вересень, 2026</div>
 
-        <!-- 3. ЛОКАЦІЯ -->
-        <div class="section">
-            <div class="location-box">
-                <div class="location-name">Бобриця Дача</div>
-                <p style="color: var(--text-muted); font-size: 1rem;">вулиця Козацька, 77, Бобриця,<br>Київська область</p>
-                <a href="https://maps.google.com" target="_blank" class="btn-map">показати на карті</a>
+                <div class="calendar-grid">
+                    <div class="day-name">ПН</div>
+                    <div class="day-name">ВТ</div>
+                    <div class="day-name">СР</div>
+                    <div class="day-name">ЧТ</div>
+                    <div class="day-name">ПТ</div>
+                    <div class="day-name">СБ</div>
+                    <div class="day-name">НД</div>
+
+                    <div class="day-num" style="opacity: 0.3;">31</div>
+                    <div class="day-num">1</div>
+                    <div class="day-num">2</div>
+                    <div class="day-num">3</div>
+                    <div class="day-num">4</div>
+                    <div class="day-num">5</div>
+                    <div class="day-num">6</div>
+
+                    <div class="day-num">7</div>
+                    <div class="day-num">8</div>
+                    <div class="day-num active">9</div>
+                    <div class="day-num">10</div>
+                    <div class="day-num">11</div>
+                    <div class="day-num">12</div>
+                    <div class="day-num">13</div>
+                </div>
+
+                <p class="calendar-note">— день, коли наша любов стане родиною</p>
             </div>
-        </div>
 
-        <!-- 4. ЗВОРОТНИЙ ВІДЛІК -->
-        <div class="section">
-            <div class="countdown-title">До свята залишилося</div>
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="days">00</div>
-                    <div class="countdown-label">днів</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="hours">00</div>
-                    <div class="countdown-label">годин</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="minutes">00</div>
-                    <div class="countdown-label">хвилин</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="seconds">00</div>
-                    <div class="countdown-label">секунд</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 5. ТАЙМІНГ -->
-        <div class="section">
-            <div class="section-title">Таймінг</div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-badge"></div>
-                    <div class="timeline-event">Збір гостей</div>
-                    <div class="timeline-time">13:00</div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-badge"></div>
-                    <div class="timeline-event">Церемонія</div>
-                    <div class="timeline-time">14:00</div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-badge"></div>
-                    <div class="timeline-event">Святковий банкет</div>
-                    <div class="timeline-time">15:00</div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-badge"></div>
-                    <div class="timeline-event">Весільний торт</div>
-                    <div class="timeline-time">18:00</div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-badge"></div>
-                    <div class="timeline-event">Завершення вечора</div>
-                    <div class="timeline-time">20:00</div>
+            <!-- ЗВОРОТНИЙ ВІДЛІК -->
+            <div class="section">
+                <div class="countdown-title">До свята залишилося</div>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">днів</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">годин</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">хвилин</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">секунд</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 6. ДРЕС-КОД -->
-        <div class="section">
-            <div class="section-title">Дрес-код</div>
-            <p style="font-size: 1.05rem; font-weight: 300; color: var(--text-muted);">
-                Будемо дуже вдячні, якщо ви підтримаєте стиль і колір нашого весілля у своїх образах:
-            </p>
-
-            <div class="color-palette">
-                <div class="color-circle" style="background-color: #2A3B31;" title="Темно-зелений"></div>
-                <div class="color-circle" style="background-color: #556B2F;" title="Оливковий"></div>
-                <div class="color-circle" style="background-color: #8F9E8B;" title="Шавлія"></div>
-                <div class="color-circle" style="background-color: #D4C5B9;" title="Бежевий"></div>
-                <div class="color-circle" style="background-color: #F5EFEB;" title="Перлинно-молочний"></div>
+            <div class="pearl-divider">
+                <div class="line"></div>
+                <div class="small-pearl"></div>
+                <div class="line"></div>
             </div>
-        </div>
 
-        <!-- 7. ПОБАЖАННЯ -->
-        <div class="section">
-            <div class="wishes-card">
-                <div class="wishes-number">Побажання</div>
-                <p class="wishes-text">
-                    Ми вирушаємо у весільну подорож одразу після святкування, тож, на жаль, квіти не зможуть поїхати з нами.<br><br>
-                    Натомість будемо раді конверту і вашій щирій посмішці!
-                </p>
+            <!-- ЛОКАЦІЯ -->
+            <div class="section">
+                <div class="location-box">
+                    <!-- Графіка ресторану / келихів -->
+                    <svg class="location-graphic" viewBox="0 0 64 64" fill="none" stroke="#6C5B4C" stroke-width="1.5">
+                        <path d="M20 18C20 28 32 32 32 42M44 18C44 28 32 32 32 42M32 42V54M22 54H42"/>
+                        <path d="M14 18H50L46 6H18L14 18Z"/>
+                    </svg>
+                    <div class="location-title">Ресторан Rivali</div>
+                    <div class="location-subtitle">м. Вінниця</div>
+                    <p style="color: var(--text-muted); font-size: 1.05rem;">Чекаємо на вас за адресою ресторану Rivali</p>
+                    <a href="https://maps.google.com/?q=Rivali+Вінниця" target="_blank" class="btn-custom">Показати на карті</a>
+                </div>
             </div>
-        </div>
 
+            <!-- ТАЙМІНГ -->
+            <div class="section">
+                <div class="section-title">Таймінг</div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-event">Збір гостей</div>
+                        <div class="timeline-time">13:00</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-event">Церемонія</div>
+                        <div class="timeline-time">14:00</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-event">Святковий банкет</div>
+                        <div class="timeline-time">15:00</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-event">Весільний торт</div>
+                        <div class="timeline-time">18:00</div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-badge"></div>
+                        <div class="timeline-event">Завершення вечора</div>
+                        <div class="timeline-time">20:00</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ДРЕС-КОД -->
+            <div class="section">
+                <div class="section-title">Дрес-код</div>
+                <div class="dresscode-card">
+                    <p style="font-size: 1.1rem; font-weight: 300; line-height: 1.6;">
+                        Дрес-коду як такого не буде, адже для нас головне — ваша присутність та комфорт! 
+                    </p>
+                    <p style="font-size: 1rem; color: var(--text-muted); margin-top: 15px;">
+                        Єдине прохання — утриматися від занадто яскравих, неонових кольорів:
+                    </p>
+
+                    <!-- Приклади яскравих кольорів, які не бажані -->
+                    <div class="avoid-colors">
+                        <div class="color-circle" style="background-color: #8A2BE2;" title="Фіолетовий"></div>
+                        <div class="color-circle" style="background-color: #FF007F;" title="Яскраво-рожевий"></div>
+                        <div class="color-circle" style="background-color: #00E5FF;" title="Яскраво-блакитний"></div>
+                        <div class="color-circle" style="background-color: #FF3300;" title="Яскраво-червоний"></div>
+                    </div>
+
+                    <div class="white-dress-note">
+                        ✨ <strong>Окреме прохання до чарівних дівчат:</strong> будь ласка, утримайтеся від білосніжних та білих суконь.
+                    </div>
+                </div>
+            </div>
+
+            <!-- АНКЕТА RSVP -->
+            <div class="section">
+                <div class="section-title">Анкета гостя</div>
+                <div class="rsvp-card">
+                    <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 20px;">
+                        Будь ласка, підтвердьте вашу присутність до 20 серпня 2026 року:
+                    </p>
+                    
+                    <form id="rsvpForm" onsubmit="event.preventDefault(); alert('Дякуємо! Вашу відповідь збережено.');">
+                        <div class="form-group">
+                            <label class="form-label">Ваше ім'я та прізвище</label>
+                            <input type="text" class="form-input" placeholder="Олександр та Олена" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Чи зможете розділити з нами це свято?</label>
+                            <select class="form-select" required>
+                                <option value="">Оберіть відповідь...</option>
+                                <option value="yes">Так, із задоволенням!</option>
+                                <option value="pair">Прийду зі супутником/супутницею</option>
+                                <option value="no">На жаль, не зможу</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn-custom" style="width: 100%; margin-top: 10px;">Підтвердити участь</button>
+                    </form>
+
+                    <!-- Або посилання на зовнішню Google Форму -->
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px;">
+                        Також можна заповнити <a href="https://forms.google.com" target="_blank" style="color: var(--color-coffee); font-weight: 600;">Google Форму</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- TELEGRAM КАНАЛ -->
+            <div class="section">
+                <div class="tg-card">
+                    <svg class="tg-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                    </svg>
+                    <div style="font-family: 'Alex Brush', cursive; font-size: 2.8rem; color: var(--color-banana); line-height: 1;">Живі моменти</div>
+                    <p style="font-size: 1.05rem; font-weight: 300; margin-top: 15px; line-height: 1.5;">
+                        Діліться своїми фото та відео у нашому спільному Telegram-каналі весілля, щоб зберегти ці спогади разом!
+                    </p>
+                    <a href="https://t.me" target="_blank" class="btn-tg">Перейти у Telegram-канал</a>
+                </div>
+            </div>
+
+            <!-- ПОБАЖАННЯ -->
+            <div class="section">
+                <div class="wishes-card">
+                    <div style="font-family: 'Alex Brush', cursive; font-size: 3.5rem; color: var(--color-coffee); line-height: 1;">Побажання</div>
+                    <p style="font-size: 1.05rem; font-weight: 300; line-height: 1.6; margin-top: 15px;">
+                        Ми вирушаємо у весільну подорож одразу після святкування, тож, на жаль, квіти не зможуть поїхати з нами.<br><br>
+                        Натомість будемо раді конверту і вашій щирій посмішці!
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <!-- Скрипт таймера (розраховується на 09.09.2026 об 13:00) -->
+    <!-- Скрипти для анімацій та таймера -->
     <script>
+        // 1. Анімація конверта при натисканні
+        const envelopeScreen = id('envelopeScreen');
+        const envelopeWrapper = id('envelopeWrapper');
+        const mainContent = id('mainContent');
+
+        function id(name) { return document.getElementById(name); }
+
+        envelopeWrapper.addEventListener('click', () => {
+            envelopeWrapper.classList.add('open');
+            setTimeout(() => {
+                envelopeScreen.classList.add('opened');
+                mainContent.classList.add('visible');
+            }, 700);
+        });
+
+        // 2. Таймер зворотного відліку (09.09.2026, 13:00)
         const weddingDate = new Date("September 9, 2026 13:00:00").getTime();
 
         function updateCountdown() {
@@ -521,15 +860,15 @@
                 const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-                document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-                document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-                document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-                document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+                id("days").innerText = days < 10 ? "0" + days : days;
+                id("hours").innerText = hours < 10 ? "0" + hours : hours;
+                id("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+                id("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
             } else {
-                document.getElementById("days").innerText = "00";
-                document.getElementById("hours").innerText = "00";
-                document.getElementById("minutes").innerText = "00";
-                document.getElementById("seconds").innerText = "00";
+                id("days").innerText = "00";
+                id("hours").innerText = "00";
+                id("minutes").innerText = "00";
+                id("seconds").innerText = "00";
             }
         }
 
