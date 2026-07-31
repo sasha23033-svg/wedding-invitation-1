@@ -52,14 +52,14 @@
         }
 
         /* ----------------------------------
-           АУДІО ПЛЕЄР (ПРИХОВАНИЙ З КНОПКОЮ)
+           АУДІО ПЛЕЄР
         ----------------------------------- */
         .music-control {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
+            bottom: 25px;
+            right: 25px;
+            width: 44px;
+            height: 44px;
             background-color: var(--color-coffee);
             border-radius: 50%;
             display: flex;
@@ -67,10 +67,10 @@
             align-items: center;
             cursor: pointer;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.5s ease;
+            transition: all 0.4s ease;
         }
 
         .music-control.visible {
@@ -85,7 +85,7 @@
         }
 
         /* ----------------------------------
-           АНІМАЦІЯ КОНВЕРТА (SCREEN 1)
+           КОНВЕРТ (SCREEN 1)
         ----------------------------------- */
         .envelope-screen {
             position: fixed;
@@ -123,7 +123,7 @@
 
         .envelope-quote {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-style: italic;
             color: var(--text-muted);
             text-align: center;
@@ -207,23 +207,11 @@
         }
 
         /* ----------------------------------
-           ПОСТУПОВІ АНІМАЦІЇ ДЛЯ КОНТЕНТУ
+           РІЗНОМАНІТНІ АНІМАЦІЇ ПОЯВИ
         ----------------------------------- */
         .main-content {
             display: none;
             padding: 30px 20px;
-        }
-
-        .fade-section {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-            will-change: opacity, transform;
-        }
-
-        .fade-section.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .section {
@@ -231,6 +219,39 @@
             text-align: center;
             position: relative;
         }
+
+        /* Анімація 1: Збільшення та поява */
+        .anim-scale-up {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .anim-scale-up.visible { opacity: 1; transform: scale(1); }
+
+        /* Анімація 2: Посув зліва */
+        .anim-slide-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .anim-slide-left.visible { opacity: 1; transform: translateX(0); }
+
+        /* Анімація 3: Посув справа */
+        .anim-slide-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .anim-slide-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* Анімація 4: Виринання знизу */
+        .anim-fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
+
 
         /* ГОЛОВНА КАРТКА */
         .hero-card {
@@ -325,11 +346,7 @@
             font-size: 0.85rem;
         }
 
-        .day-name {
-            font-weight: 400;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-        }
+        .day-name { font-weight: 400; color: var(--text-muted); margin-bottom: 5px; }
 
         .day-num {
             padding: 8px 0;
@@ -346,20 +363,13 @@
             box-shadow: 0 3px 8px rgba(108, 91, 76, 0.15);
         }
 
-        /* ЛОКАЦІЯ ВІННИЦЯ RIVALI */
+        /* ЛОКАЦІЯ */
         .location-box {
             border: 1px solid var(--gold-light);
             padding: 35px 20px;
             border-radius: 24px;
             background-color: var(--color-milk);
             box-shadow: 0 6px 20px rgba(108, 91, 76, 0.04);
-        }
-
-        .location-graphic {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 15px auto;
-            opacity: 0.8;
         }
 
         .location-title {
@@ -441,139 +451,87 @@
             margin-top: 4px;
         }
 
-        /* ТАЙМІНГ */
-        .section-title {
-            font-family: 'Alex Brush', cursive;
-            font-size: 3rem;
-            color: var(--color-coffee-dark);
-            margin-bottom: 30px;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 320px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, var(--gold-light) 15%, var(--gold-light) 85%, transparent);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 35px;
-            background: var(--color-milk);
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px solid rgba(216, 197, 176, 0.4);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-        }
-
-        .timeline-badge {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #ffffff, #ded5c5);
-            position: absolute;
-            left: 50%;
-            top: -20px;
-            transform: translateX(-50%);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-        }
-
-        .timeline-time {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            color: var(--gold-accent);
-            margin-top: 4px;
-            font-weight: 500;
-        }
-
-        .timeline-event {
-            font-size: 1.4rem;
-            font-style: italic;
-        }
-
-        /* ДРЕС-КОД (Тканини) */
+        /* ----------------------------------
+           ДРЕС-КОД (СТИЛЬ З РЕФЕРЕНСУ 2)
+        ----------------------------------- */
         .dresscode-card {
             background-color: var(--color-milk);
             border: 1px solid var(--gold-light);
-            border-radius: 24px;
-            padding: 30px 20px;
+            border-radius: 28px;
+            padding: 40px 22px;
+            box-shadow: 0 8px 25px rgba(108, 91, 76, 0.05);
         }
 
-        .fabric-palette {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0 30px 0;
+        .dresscode-main-text {
+            font-size: 1.15rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-dark);
+            max-width: 300px;
+            margin: 0 auto;
         }
 
-        .fabric-circle {
-            width: 55px;
-            height: 55px;
+        /* СІТКА ТКАНИН В 2 РЯДИ ПО 3 КРУЖЕЧКИ (Як на скріншоті) */
+        .fabric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            max-width: 250px;
+            margin: 30px auto;
+        }
+
+        .fabric-swatch {
+            width: 72px;
+            height: 72px;
             border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
             background-size: cover;
             background-position: center;
             border: 2px solid #ffffff;
+            transition: transform 0.4s ease;
         }
 
-        /* Текстури тканин з Unsplash (льон, шовк, бавовна у ваших кольорах) */
-        .fabric-1 { background-image: url('https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80'); } /* Молочний */
-        .fabric-2 { background-image: url('https://images.unsplash.com/photo-1550046175-685b31df6810?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80'); } /* Банановий/Кремовий шовк */
-        .fabric-3 { background-image: url('https://images.unsplash.com/photo-1584345532588-e21b7484df0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80'); } /* Світло-кавовий */
-        .fabric-4 { background-image: url('https://images.unsplash.com/photo-1614031940177-3e11fb5bbdc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80'); } /* Кавовий */
-
-        .avoid-colors {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin: 15px 0;
+        .fabric-swatch:hover {
+            transform: scale(1.08);
         }
 
-        .color-circle-cross {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            position: relative;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        /* Текстури сатину/шовку у вашій тональності */
+        .swatch-1 { background-image: url('https://images.unsplash.com/photo-1604871000636-074fa5117945?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-2 { background-image: url('https://images.unsplash.com/photo-1550046175-685b31df6810?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-3 { background-image: url('https://images.unsplash.com/photo-1584345532588-e21b7484df0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-4 { background-image: url('https://images.unsplash.com/photo-1614031940177-3e11fb5bbdc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-5 { background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+        .swatch-6 { background-image: url('https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'); }
+
+        .girls-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--gold-accent);
+            margin-bottom: 8px;
         }
 
-        .color-circle-cross::after {
-            content: "✕";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .white-dress-note {
-            background-color: var(--color-banana);
-            border-radius: 15px;
-            padding: 15px;
-            margin-top: 20px;
+        .girls-text {
             font-size: 1.05rem;
-            border: 1px dashed var(--gold-light);
-            color: var(--color-coffee-dark);
+            line-height: 1.5;
+            color: var(--text-dark);
+            max-width: 290px;
+            margin: 0 auto;
         }
 
-        /* АНКЕТА RSVP & TELEGRAM & ПОБАЖАННЯ */
+        /* ТАЙМІНГ, RSVP, TELEGRAM, ПОБАЖАННЯ */
+        .timeline { position: relative; max-width: 320px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--gold-light) 15%, var(--gold-light) 85%, transparent); transform: translateX(-50%); }
+        .timeline-item { position: relative; margin-bottom: 35px; background: var(--color-milk); padding: 15px; border-radius: 15px; border: 1px solid rgba(216, 197, 176, 0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        .timeline-badge { width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ffffff, #ded5c5); position: absolute; left: 50%; top: -20px; transform: translateX(-50%); box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+        .timeline-time { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: var(--gold-accent); margin-top: 4px; font-weight: 500; }
+        .timeline-event { font-size: 1.4rem; font-style: italic; }
+
         .rsvp-card { background-color: var(--color-banana); border: 1px solid var(--gold-light); border-radius: 24px; padding: 35px 20px; }
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-coffee); margin-bottom: 8px; }
         .form-input, .form-select { width: 100%; padding: 12px 15px; border: 1px solid var(--gold-light); border-radius: 12px; background-color: var(--color-milk); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-dark); outline: none; }
+        
         .tg-card { background-color: var(--color-coffee); color: #ffffff; border-radius: 24px; padding: 35px 20px; border: 1px solid var(--gold-light); }
         .tg-icon { width: 45px; height: 45px; fill: var(--color-banana); margin-bottom: 15px; }
         .btn-tg { display: inline-block; margin-top: 20px; padding: 14px 28px; background-color: var(--color-banana); color: var(--color-coffee-dark); border-radius: 30px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
@@ -582,9 +540,9 @@
 </head>
 <body>
 
-    <!-- Аудіо файл (романтичне весільне піаніно) -->
-    <audio id="bgMusic" loop>
-        <source src="https://cdn.pixabay.com/audio/2022/11/22/audio_febc508520.mp3" type="audio/mpeg">
+    <!-- Аудіо файл у стилі "Ordinary / Romantic Wedding Piano" -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
     </audio>
 
     <div class="site-wrapper">
@@ -606,12 +564,12 @@
         </div>
 
         <!-- ==============================================
-             2. ОСНОВНЕ ЗАПРОШЕННЯ (Анімація при скролі)
+             2. ОСНОВНЕ ЗАПРОШЕННЯ
         =============================================== -->
         <div class="main-content" id="mainContent">
 
-            <!-- ГОЛОВНА КАРТКА -->
-            <div class="section fade-section">
+            <!-- ГОЛОВНА КАРТКА (Анімація: Scale-up) -->
+            <div class="section anim-scale-up">
                 <div class="hero-card">
                     <div class="pearl-badge"></div>
                     <div class="names">
@@ -628,47 +586,27 @@
                 </div>
             </div>
 
-            <div class="pearl-divider fade-section">
+            <div class="pearl-divider anim-fade-up">
                 <div class="line"></div>
                 <div class="small-pearl"></div>
                 <div class="line"></div>
             </div>
 
-            <!-- КАЛЕНДАР -->
-            <div class="section fade-section">
+            <!-- КАЛЕНДАР (Анімація: Slide Left) -->
+            <div class="section anim-slide-left">
                 <p style="text-transform: uppercase; font-family: 'Montserrat'; font-size: 0.75rem; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 10px;">Запрошуємо вас на наше весілля!</p>
                 <div class="calendar-title">Вересень, 2026</div>
 
                 <div class="calendar-grid">
-                    <div class="day-name">ПН</div>
-                    <div class="day-name">ВТ</div>
-                    <div class="day-name">СР</div>
-                    <div class="day-name">ЧТ</div>
-                    <div class="day-name">ПТ</div>
-                    <div class="day-name">СБ</div>
-                    <div class="day-name">НД</div>
-
-                    <div class="day-num" style="opacity: 0.3;">31</div>
-                    <div class="day-num">1</div>
-                    <div class="day-num">2</div>
-                    <div class="day-num">3</div>
-                    <div class="day-num">4</div>
-                    <div class="day-num">5</div>
-                    <div class="day-num">6</div>
-
-                    <div class="day-num">7</div>
-                    <div class="day-num">8</div>
-                    <div class="day-num active">9</div>
-                    <div class="day-num">10</div>
-                    <div class="day-num">11</div>
-                    <div class="day-num">12</div>
-                    <div class="day-num">13</div>
+                    <div class="day-name">ПН</div><div class="day-name">ВТ</div><div class="day-name">СР</div><div class="day-name">ЧТ</div><div class="day-name">ПТ</div><div class="day-name">СБ</div><div class="day-name">НД</div>
+                    <div class="day-num" style="opacity: 0.3;">31</div><div class="day-num">1</div><div class="day-num">2</div><div class="day-num">3</div><div class="day-num">4</div><div class="day-num">5</div><div class="day-num">6</div>
+                    <div class="day-num">7</div><div class="day-num">8</div><div class="day-num active">9</div><div class="day-num">10</div><div class="day-num">11</div><div class="day-num">12</div><div class="day-num">13</div>
                 </div>
-                <p class="calendar-note">— день, коли наша любов стане родиною</p>
+                <p style="font-size: 1.05rem; font-style: italic; margin-top: 25px; color: var(--text-muted);">— день, коли наша любов стане родиною</p>
             </div>
 
-            <!-- ЗВОРОТНИЙ ВІДЛІК -->
-            <div class="section fade-section">
+            <!-- ЗВОРОТНИЙ ВІДЛІК (Анімація: Slide Right) -->
+            <div class="section anim-slide-right">
                 <div class="countdown-title">До свята залишилося</div>
                 <div class="countdown-container">
                     <div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">днів</div></div>
@@ -678,12 +616,12 @@
                 </div>
             </div>
 
-            <div class="pearl-divider fade-section"><div class="line"></div><div class="small-pearl"></div><div class="line"></div></div>
+            <div class="pearl-divider anim-fade-up"><div class="line"></div><div class="small-pearl"></div><div class="line"></div></div>
 
-            <!-- ЛОКАЦІЯ -->
-            <div class="section fade-section">
+            <!-- ЛОКАЦІЯ (Анімація: Scale Up) -->
+            <div class="section anim-scale-up">
                 <div class="location-box">
-                    <svg class="location-graphic" viewBox="0 0 64 64" fill="none" stroke="#6C5B4C" stroke-width="1.5">
+                    <svg style="width: 50px; height: 50px; margin: 0 auto 15px auto; opacity: 0.8;" viewBox="0 0 64 64" fill="none" stroke="#6C5B4C" stroke-width="1.5">
                         <path d="M20 18C20 28 32 32 32 42M44 18C44 28 32 32 32 42M32 42V54M22 54H42"/>
                         <path d="M14 18H50L46 6H18L14 18Z"/>
                     </svg>
@@ -694,9 +632,9 @@
                 </div>
             </div>
 
-            <!-- ТАЙМІНГ -->
-            <div class="section fade-section">
-                <div class="section-title">Таймінг</div>
+            <!-- ТАЙМІНГ (Анімація: Slide Left) -->
+            <div class="section anim-slide-left">
+                <div style="font-family: 'Alex Brush', cursive; font-size: 3rem; color: var(--color-coffee-dark); margin-bottom: 30px;">Таймінг</div>
                 <div class="timeline">
                     <div class="timeline-item"><div class="timeline-badge"></div><div class="timeline-event">Збір гостей</div><div class="timeline-time">13:00</div></div>
                     <div class="timeline-item"><div class="timeline-badge"></div><div class="timeline-event">Церемонія</div><div class="timeline-time">14:00</div></div>
@@ -706,47 +644,35 @@
                 </div>
             </div>
 
-            <!-- ДРЕС-КОД (З ТКАНИНАМИ) -->
-            <div class="section fade-section">
-                <div class="section-title">Дрес-код</div>
+            <!-- ДРЕС-КОД (ДИЗАЙН ЯК НА СКРІНШОТІ, Анімація: Scale Up) -->
+            <div class="section anim-scale-up">
+                <div style="font-family: 'Alex Brush', cursive; font-size: 3.2rem; color: var(--color-coffee-dark); margin-bottom: 25px;">Дрес-код</div>
+                
                 <div class="dresscode-card">
-                    <p style="font-size: 1.1rem; font-weight: 300; line-height: 1.6;">
-                        Дрес-коду як такого не буде, адже для нас головне — ваша присутність та комфорт! 
-                    </p>
-                    
-                    <p style="font-size: 1rem; color: var(--text-muted); margin-top: 20px;">
-                        Але якщо ви бажаєте підтримати естетику нашого свята, будемо раді бачити вас у цих відтінках:
-                    </p>
-                    
-                    <!-- Бажані кольори (тканини) -->
-                    <div class="fabric-palette">
-                        <div class="fabric-circle fabric-1" title="Молочний льон"></div>
-                        <div class="fabric-circle fabric-2" title="Ніжно-банановий шовк"></div>
-                        <div class="fabric-circle fabric-3" title="Світло-кавовий"></div>
-                        <div class="fabric-circle fabric-4" title="Кавовий"></div>
-                    </div>
-
-                    <p style="font-size: 0.95rem; color: var(--text-muted); margin-top: 25px;">
-                        Єдине прохання — утриматися від занадто яскравих, неонових кольорів:
+                    <p class="dresscode-main-text">
+                        Будемо дуже вдячні, якщо ви підтримаєте стиль і колір нашого весілля у своїх образах
                     </p>
 
-                    <!-- Заборонені кольори -->
-                    <div class="avoid-colors">
-                        <div class="color-circle-cross" style="background-color: #8A2BE2;" title="Фіолетовий"></div>
-                        <div class="color-circle-cross" style="background-color: #FF007F;" title="Яскраво-рожевий"></div>
-                        <div class="color-circle-cross" style="background-color: #00E5FF;" title="Яскраво-блакитний"></div>
-                        <div class="color-circle-cross" style="background-color: #FF3300;" title="Яскраво-червоний"></div>
+                    <!-- Палітра з 6 тканин у 2 ряди -->
+                    <div class="fabric-grid">
+                        <div class="fabric-swatch swatch-1"></div>
+                        <div class="fabric-swatch swatch-2"></div>
+                        <div class="fabric-swatch swatch-3"></div>
+                        <div class="fabric-swatch swatch-4"></div>
+                        <div class="fabric-swatch swatch-5"></div>
+                        <div class="fabric-swatch swatch-6"></div>
                     </div>
 
-                    <div class="white-dress-note">
-                        ✨ <strong>Окреме прохання до чарівних дівчат:</strong> будь ласка, утримайтеся від білосніжних та білих суконь.
-                    </div>
+                    <div class="girls-title">Для дівчат:</div>
+                    <p class="girls-text">
+                        Вечірні або коктейльні сукні у запропонованих відтінках. Також можна обрати елегантні корсети, спідниці чи костюми. Просимо утриматися від білого кольору та яскравих неонових відтінків.
+                    </p>
                 </div>
             </div>
 
-            <!-- АНКЕТА RSVP -->
-            <div class="section fade-section">
-                <div class="section-title">Анкета гостя</div>
+            <!-- АНКЕТА RSVP (Анімація: Fade Up) -->
+            <div class="section anim-fade-up">
+                <div style="font-family: 'Alex Brush', cursive; font-size: 3rem; color: var(--color-coffee-dark); margin-bottom: 25px;">Анкета гостя</div>
                 <div class="rsvp-card">
                     <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 20px;">Підтвердьте вашу присутність до 20 серпня 2026 року:</p>
                     <form onsubmit="event.preventDefault(); alert('Дякуємо! Вашу відповідь збережено.');">
@@ -765,8 +691,8 @@
                 </div>
             </div>
 
-            <!-- TELEGRAM КАНАЛ -->
-            <div class="section fade-section">
+            <!-- TELEGRAM КАНАЛ (Анімація: Slide Right) -->
+            <div class="section anim-slide-right">
                 <div class="tg-card">
                     <svg class="tg-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                     <div style="font-family: 'Alex Brush', cursive; font-size: 2.8rem; color: var(--color-banana); line-height: 1;">Живі моменти</div>
@@ -775,8 +701,8 @@
                 </div>
             </div>
 
-            <!-- ПОБАЖАННЯ -->
-            <div class="section fade-section">
+            <!-- ПОБАЖАННЯ (Анімація: Fade Up) -->
+            <div class="section anim-fade-up">
                 <div class="wishes-card">
                     <div style="font-family: 'Alex Brush', cursive; font-size: 3.5rem; color: var(--color-coffee); line-height: 1;">Побажання</div>
                     <p style="font-size: 1.05rem; font-weight: 300; line-height: 1.6; margin-top: 15px;">
@@ -789,17 +715,15 @@
         </div>
     </div>
 
-    <!-- Кнопка керування музикою -->
+    <!-- Кнопка плеєра -->
     <div class="music-control" id="musicBtn" onclick="toggleMusic()">
         <svg class="music-icon" id="musicIcon" viewBox="0 0 24 24">
-            <!-- Іконка "Грає" за замовчуванням -->
             <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
         </svg>
     </div>
 
-    <!-- Скрипти -->
+    <!-- JS Скрипти -->
     <script>
-        // 1. Анімація відкриття конверту та запуск музики
         const envelopeScreen = document.getElementById('envelopeScreen');
         const envelopeWrapper = document.getElementById('envelopeWrapper');
         const mainContent = document.getElementById('mainContent');
@@ -807,65 +731,54 @@
         const musicBtn = document.getElementById('musicBtn');
         let isMusicPlaying = false;
 
+        // 1. Відкриття конверту та старт Ordinary Music
         envelopeWrapper.addEventListener('click', () => {
             envelopeWrapper.classList.add('open');
             
-            // Запуск музики
             bgMusic.play().then(() => {
                 isMusicPlaying = true;
                 musicBtn.classList.add('visible');
-            }).catch(error => console.log("Автовідтворення заблоковано браузером"));
+            }).catch(err => console.log("Audio play blocked by browser"));
 
             setTimeout(() => {
                 envelopeScreen.classList.add('opened');
                 mainContent.style.display = 'block';
                 
-                // Перевірка елементів для анімації появи після закриття конверту
                 setTimeout(() => {
-                    checkScroll();
+                    initAnimations();
                 }, 100);
             }, 800);
         });
 
-        // 2. Керування музикою
+        // 2. Керування аудіо
         function toggleMusic() {
             if (isMusicPlaying) {
                 bgMusic.pause();
-                isMusicIconPause();
+                document.getElementById('musicIcon').innerHTML = '<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/><line x1="2" y1="2" x2="22" y2="22" stroke="white" stroke-width="2"/>';
             } else {
                 bgMusic.play();
-                isMusicIconPlay();
+                document.getElementById('musicIcon').innerHTML = '<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>';
             }
             isMusicPlaying = !isMusicPlaying;
         }
 
-        function isMusicIconPause() {
-            document.getElementById('musicIcon').innerHTML = '<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/><line x1="2" y1="2" x2="22" y2="22" stroke="white" stroke-width="2"/>';
-        }
-        function isMusicIconPlay() {
-            document.getElementById('musicIcon').innerHTML = '<path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>';
-        }
+        // 3. Ініціалізація варіативних анімацій при прокрутці
+        function initAnimations() {
+            const animatedElements = document.querySelectorAll('.anim-scale-up, .anim-slide-left, .anim-slide-right, .anim-fade-up');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
-        // 3. Поетапні анімації появи (Intersection Observer)
-        const fadeSections = document.querySelectorAll('.fade-section');
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Анімуємо тільки один раз
-                }
-            });
-        }, observerOptions);
-
-        function checkScroll() {
-            fadeSections.forEach(section => {
-                observer.observe(section);
-            });
+            animatedElements.forEach(el => observer.observe(el));
         }
 
-        // 4. Таймер зворотного відліку (09.09.2026, 13:00)
+        // 4. Таймер
         const weddingDate = new Date("September 9, 2026 13:00:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
