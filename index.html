@@ -397,9 +397,7 @@
             margin-top: 4px;
         }
 
-        /* ----------------------------------
-           ОНОВЛЕНИЙ ДРЕС-КОД (З ЕСТЕЦИЧНОЮ ІКОНКОЮ)
-        ----------------------------------- */
+        /* ДРЕС-КОД */
         .dresscode-card {
             background-color: var(--color-card-bg);
             border: 1px solid var(--gold-light);
@@ -460,7 +458,8 @@
         
         .tg-card { background-color: var(--color-coffee); color: #ffffff; border-radius: 24px; padding: 35px 20px; border: 1px solid var(--gold-light); }
         .tg-icon { width: 45px; height: 45px; fill: var(--color-note-bg); margin-bottom: 15px; }
-        .btn-tg { display: inline-block; margin-top: 20px; padding: 14px 28px; background-color: var(--color-note-bg); color: var(--color-coffee-dark); border-radius: 30px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        .btn-tg { display: inline-block; margin-top: 20px; padding: 14px 28px; background-color: var(--color-note-bg); color: var(--color-coffee-dark); border-radius: 30px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; transition: transform 0.2s ease; }
+        .btn-tg:hover { transform: scale(1.03); }
         .wishes-card { background-color: var(--color-card-bg); color: var(--text-dark); padding: 35px 20px; border-radius: 24px; border: 1px solid var(--gold-light); }
     </style>
 </head>
@@ -565,13 +564,12 @@
                 </div>
             </div>
 
-            <!-- ДРЕС-КОД (ОНОВЛЕНИЙ) -->
+            <!-- ДРЕС-КОД -->
             <div class="section anim-fade-up">
                 <div style="font-family: 'Alex Brush', cursive; font-size: 3.2rem; color: var(--color-coffee-dark); margin-bottom: 25px;">Дрес-код</div>
                 
                 <div class="dresscode-card">
                     <div class="dresscode-icon-box">
-                        <!-- Витончені келихи замість кружалець -->
                         <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#6C5B4C" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M8 22h8"/>
                             <path d="M12 15v7"/>
@@ -592,7 +590,7 @@
                 </div>
             </div>
 
-            <!-- АНКЕТА ГОСТЯ -->
+            <!-- АНКЕТА ГОСТЯ (ІНТЕГРОВАНО GOOGLE ФОРМУ) -->
             <div class="section anim-fade-up">
                 <div class="rsvp-card">
                     <div style="font-family: 'Alex Brush', cursive; font-size: 3.2rem; color: var(--color-coffee-dark); margin-bottom: 10px;">Анкета гостя</div>
@@ -600,19 +598,19 @@
                         Будь ласка, підтвердьте вашу присутність до <strong>20 серпня 2026 року</strong>, заповнивши коротку анкету:
                     </p>
                     
-                    <a href="ВСТАВТЕ_ПОСИЛАННЯ_НА_ГУГЛ_ФОРМУ" target="_blank" class="btn-custom" style="display: block; text-align: center; background-color: var(--color-coffee); color: #ffffff;">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXVxf6Ld3Px5BLIaVqZ113khT8v9KBocypYwSnAzDaGc-zbQ/viewform?usp=publish-editor" target="_blank" class="btn-custom" style="display: block; text-align: center; background-color: var(--color-coffee); color: #ffffff;">
                         Заповнити анкету
                     </a>
                 </div>
             </div>
 
-            <!-- TELEGRAM КАНАЛ -->
+            <!-- TELEGRAM КАНАЛ (ІНТЕГРОВАНО ПОСИЛАННЯ) -->
             <div class="section anim-fade-up">
                 <div class="tg-card">
                     <svg class="tg-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                     <div style="font-family: 'Alex Brush', cursive; font-size: 2.8rem; color: var(--color-note-bg); line-height: 1;">Живі моменти</div>
                     <p style="font-size: 1.05rem; font-weight: 300; margin-top: 15px; line-height: 1.5;">Діліться своїми фото та відео у нашому спільному Telegram-каналі весілля!</p>
-                    <a href="https://t.me" target="_blank" class="btn-tg">Перейти у канал</a>
+                    <a href="https://t.me/+Ep-wdbpTtSQ1NjYy" target="_blank" class="btn-tg">Перейти у канал</a>
                 </div>
             </div>
 
