@@ -51,9 +51,7 @@
             overflow: hidden;
         }
 
-        /* ----------------------------------
-           КОНВЕРТ (ЕКРАН 1)
-        ----------------------------------- */
+        /* КОНВЕРТ (ЕКРАН 1) */
         .envelope-screen {
             position: fixed;
             top: 0;
@@ -173,9 +171,7 @@
             transform: translate(-50%, -50%) scale(0.5);
         }
 
-        /* ----------------------------------
-           ПОСТУПОВА АНІМАЦІЯ (FADE IN UP)
-        ----------------------------------- */
+        /* ПОСТУПОВА АНІМАЦІЯ */
         .main-content {
             display: none;
             padding: 30px 20px;
@@ -465,17 +461,14 @@
 </head>
 <body>
 
-    <!-- ФОНОВИЙ АУДІОПЛЕЄР -->
+    <!-- ФОНОВИЙ АУДІОПЛЕЄР (Шлях до файлу: nansy.mp3) -->
     <audio id="weddingMusic" loop preload="auto">
-        <source src="audio/music.mp3" type="audio/mpeg">
-        <source src="music.mp3" type="audio/mpeg">
+        <source src="nansy.mp3" type="audio/mpeg">
     </audio>
 
     <div class="site-wrapper">
 
-        <!-- ==============================================
-             1. АНІМОВАНИЙ КОНВЕРТ
-        =============================================== -->
+        <!-- 1. КОНВЕРТ -->
         <div class="envelope-screen" id="envelopeScreen">
             <h1 class="invite-title">Ви запрошені<br>на весілля</h1>
             
@@ -489,9 +482,7 @@
             </p>
         </div>
 
-        <!-- ==============================================
-             2. ОСНОВНЕ ЗАПРОШЕННЯ
-        =============================================== -->
+        <!-- 2. ОСНОВНЕ ЗАПРОШЕННЯ -->
         <div class="main-content" id="mainContent">
 
             <!-- ГОЛОВНА КАРТКА -->
@@ -644,7 +635,7 @@
         envelopeWrapper.addEventListener('click', () => {
             envelopeWrapper.classList.add('open');
             
-            // Вмикаємо фонову музику під час кліку
+            // Вмикаємо фонову музику nansy.mp3
             if (weddingMusic) {
                 weddingMusic.play().catch(error => {
                     console.log("Браузер відхилив автовідтворення:", error);
