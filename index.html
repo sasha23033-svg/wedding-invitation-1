@@ -51,7 +51,47 @@
             overflow: hidden;
         }
 
-        /* КОНВЕРТ (ЕКРАН 1) */
+        /* ----------------------------------
+           КНОПКА МУЗИКИ (MUTE/UNMUTE)
+        ----------------------------------- */
+        .music-toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--color-note-bg);
+            border: 1px solid var(--gold-light);
+            box-shadow: 0 4px 12px rgba(108, 91, 76, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, transform 0.2s ease, background-color 0.3s ease;
+        }
+
+        .music-toggle-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .music-toggle-btn:hover {
+            transform: scale(1.08);
+        }
+
+        .music-icon {
+            font-size: 1.2rem;
+            line-height: 1;
+            user-select: none;
+        }
+
+        /* ----------------------------------
+           КОНВЕРТ (ЕКРАН 1)
+        ----------------------------------- */
         .envelope-screen {
             position: fixed;
             top: 0;
@@ -171,7 +211,9 @@
             transform: translate(-50%, -50%) scale(0.5);
         }
 
-        /* ПОСТУПОВА АНІМАЦІЯ */
+        /* ----------------------------------
+           ПОСТУПОВА АНІМАЦІЯ
+        ----------------------------------- */
         .main-content {
             display: none;
             padding: 30px 20px;
@@ -461,9 +503,14 @@
 </head>
 <body>
 
-    <!-- ФОНОВИЙ АУДІОПЛЕЄР (Шлях до файлу: nansy.mp3) -->
+    <!-- КНОПКА КЕРУВАННЯ МУЗИКОЮ -->
+    <button class="music-toggle-btn" id="musicToggleBtn" aria-label="Ввімкнути/Вимкнути музику">
+        <span class="music-icon" id="musicIcon">🔊</span>
+    </button>
+
+    <!-- ФОНОВИЙ АУДІОПЛЕЄР (Шлях до файлу: nancy.mp3) -->
     <audio id="weddingMusic" loop preload="auto">
-        <source src="nansy.mp3" type="audio/mpeg">
+        <source src="nancy.mp3" type="audio/mpeg">
     </audio>
 
     <div class="site-wrapper">
@@ -630,27 +677,50 @@
         const envelopeWrapper = document.getElementById('envelopeWrapper');
         const mainContent = document.getElementById('mainContent');
         const weddingMusic = document.getElementById('weddingMusic');
+        const musicToggleBtn = document.getElementById('musicToggleBtn');
+        const musicIcon = document.getElementById('musicIcon');
+
+        let isPlaying = false;
 
         // Клік по конверту
         envelopeWrapper.addEventListener('click', () => {
             envelopeWrapper.classList.add('open');
             
-            // Вмикаємо фонову музику nansy.mp3
+            // Вмикаємо фонову музику nancy.mp3
             if (weddingMusic) {
-                weddingMusic.play().catch(error => {
+                weddingMusic.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.innerText = "🔊";
+                }).catch(error => {
                     console.log("Браузер відхилив автовідтворення:", error);
+                    isPlaying = false;
+                    musicIcon.innerText = "🔇";
                 });
             }
 
-            // Перехід до основного сайту
+            // Перехід до основного сайту та показ кнопки музики
             setTimeout(() => {
                 envelopeScreen.classList.add('opened');
                 mainContent.style.display = 'block';
+                musicToggleBtn.classList.add('visible');
                 
                 setTimeout(() => {
                     initScrollAnimations();
                 }, 100);
             }, 600);
+        });
+
+        // Керування кнопкою паузи/відтворення
+        musicToggleBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                weddingMusic.pause();
+                musicIcon.innerText = "🔇";
+                isPlaying = false;
+            } else {
+                weddingMusic.play();
+                musicIcon.innerText = "🔊";
+                isPlaying = true;
+            }
         });
 
         // Плавна поява елементів під час скролу
