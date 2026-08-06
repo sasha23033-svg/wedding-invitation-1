@@ -457,7 +457,7 @@
             font-weight: 300;
             line-height: 1.6;
             color: var(--text-dark);
-            max-width: 310px;
+            max-width: 320px;
             margin: 0 auto;
         }
 
@@ -471,8 +471,8 @@
         }
 
         .girls-request-text {
-            font-size: 1.15rem;
-            line-height: 1.55;
+            font-size: 1.1rem;
+            line-height: 1.6;
             color: var(--color-coffee-dark);
             font-weight: 400;
         }
@@ -484,7 +484,7 @@
             font-size: 1.2rem;
         }
 
-        /* ТАЙМІНГ, TELEGRAM, ПОБАЖАННЯ */
+        /* ТАЙМІНГ, TELEGRAM, КВІТИ, ПОБАЖАННЯ */
         .timeline { position: relative; max-width: 320px; margin: 0 auto; }
         .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--gold-light) 15%, var(--gold-light) 85%, transparent); transform: translateX(-50%); }
         .timeline-item { position: relative; margin-bottom: 35px; background: var(--color-card-bg); padding: 15px; border-radius: 15px; border: 1px solid rgba(216, 197, 176, 0.4); box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
@@ -498,7 +498,9 @@
         .tg-icon { width: 45px; height: 45px; fill: var(--color-note-bg); margin-bottom: 15px; }
         .btn-tg { display: inline-block; margin-top: 20px; padding: 14px 28px; background-color: var(--color-note-bg); color: var(--color-coffee-dark); border-radius: 30px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; transition: transform 0.2s ease; }
         .btn-tg:hover { transform: scale(1.03); }
-        .wishes-card { background-color: var(--color-card-bg); color: var(--text-dark); padding: 35px 20px; border-radius: 24px; border: 1px solid var(--gold-light); }
+        
+        .flowers-card { background-color: var(--color-note-bg); color: var(--text-dark); padding: 35px 22px; border-radius: 24px; border: 1px solid var(--gold-light); }
+        .wishes-card { background-color: var(--color-card-bg); color: var(--text-dark); padding: 35px 22px; border-radius: 24px; border: 1px solid var(--gold-light); box-shadow: 0 6px 20px rgba(108, 91, 76, 0.03); }
     </style>
 </head>
 <body>
@@ -603,7 +605,6 @@
                     <div class="timeline-item"><div class="timeline-badge"></div><div class="timeline-event">Збір гостей</div><div class="timeline-time">13:00</div></div>
                     <div class="timeline-item"><div class="timeline-badge"></div><div class="timeline-event">Церемонія</div><div class="timeline-time">14:00</div></div>
                     <div class="timeline-item"><div class="timeline-badge"></div><div class="timeline-event">Святковий банкет</div><div class="timeline-time">15:00</div></div>
-                    <div class="timeline-item"><div class="timeline-badge"></div><div class="timeline-event">Весільний торт</div><div class="timeline-time">18:00</div></div>
                     <div class="timeline-item"><div class="timeline-badge"></div><div class="timeline-event">Завершення вечора</div><div class="timeline-time">20:00</div></div>
                 </div>
             </div>
@@ -623,12 +624,14 @@
                     </div>
 
                     <p class="dresscode-main-text">
-                        Дрес-коду як такого не буде, адже для нас головне — ваша присутність та комфорт!
+                        Дрес-коду як такого не буде, адже для нас головне — ваша присутність та комфорт!<br><br>
+                        Будемо вдячні, якщо ви утримаєтеся від занадто яскравих та неонових кольорів, щоб зберегти затишну атмосферу свята.
                     </p>
 
                     <div class="girls-request-box">
                         <p class="girls-request-text">
-                            <span class="sparkle-icon">✨</span><strong>Окреме прохання до чарівних дівчат:</strong> будь ласка, утримайтеся від білосніжних та білих суконь.
+                            <span class="sparkle-icon">✨</span><strong>Прохання до дівчат:</strong> будь ласка, утримайтеся від білосніжних та білих суконь.<br><br>
+                            <em>(При цьому білі брючні костюми дівчаткам, а також білі сукеночки маленьким діткам — дозволені та вітаються! 🤍)</em>
                         </p>
                     </div>
                 </div>
@@ -658,13 +661,23 @@
                 </div>
             </div>
 
+            <!-- КВІТИ ТА КОМПЛІМЕНТИ (НОВИЙ БЛОК) -->
+            <div class="section anim-fade-up">
+                <div class="flowers-card">
+                    <div style="font-family: 'Alex Brush', cursive; font-size: 3.2rem; color: var(--color-coffee-dark); line-height: 1;">Квіти та компліменти</div>
+                    <p style="font-size: 1.05rem; font-weight: 300; line-height: 1.6; margin-top: 18px;">
+                        Як ви знаєте, ми зараз не живемо у Вінниці, тому, на жаль, живі квіти не зможуть поїхати з нами після свята.<br><br>
+                        Якщо ви хочете зробити нам приємний комплімент замість букета — будемо щиро раді пляшці вашого улюбленого алкоголю для нашої домашньої колекції! 😁🥂
+                    </p>
+                </div>
+            </div>
+
             <!-- ПОБАЖАННЯ -->
             <div class="section anim-fade-up">
                 <div class="wishes-card">
                     <div style="font-family: 'Alex Brush', cursive; font-size: 3.5rem; color: var(--color-coffee); line-height: 1;">Побажання</div>
-                    <p style="font-size: 1.05rem; font-weight: 300; line-height: 1.6; margin-top: 15px;">
-                        Ми вирушаємо у весільну подорож одразу після святкування, тож, на жаль, квіти не зможуть поїхати з нами.<br><br>
-                        Натомість будемо раді конверту і вашій щирій посмішці!
+                    <p style="font-size: 1.1rem; font-weight: 300; line-height: 1.6; margin-top: 15px; color: var(--color-coffee-dark);">
+                        Захопіть зручне взуття, щоб розривати танцпол, та підготуйте зв'язки — кричати "Гірко!" доведеться часто й голосно! 🎉✨
                     </p>
                 </div>
             </div>
